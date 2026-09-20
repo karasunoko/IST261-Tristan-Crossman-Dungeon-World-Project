@@ -27,6 +27,13 @@ public class Item {
         this.tags = new ArrayList<DWTag>();
     }
 
+    public Item(){
+        this.name = "default";
+        this.cost = 0;
+        this.weight = 0;
+        this.tags = new ArrayList<DWTag>();
+    }
+
     @Override
     public String toString(){
         String out = "";

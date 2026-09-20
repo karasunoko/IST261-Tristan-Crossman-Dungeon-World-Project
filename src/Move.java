@@ -12,7 +12,11 @@ public class Move {
         this.description = description;
         this.name = name;
     }
-
+    public Move()
+    {
+        this.description = "default";
+        this.name = "";
+    }
     @Override
     public String toString(){
         if(name == ""){

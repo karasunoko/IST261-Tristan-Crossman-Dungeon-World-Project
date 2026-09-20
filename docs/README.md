@@ -7,13 +7,18 @@
 
 Project Description:  A simple but useful program for managing notes, items, NPCs, hirelings, and monsters for the tabletop role playing game Dungeon World.
 
-## Current Assignment Name:   'M02-A01: Identifying and Creating SW Model Classes'
+## Current Assignment Name:   'M03-A01: Writing Model Unit Tests'
 
 
 ## Assignment Accomplishments - (Description)
 
 Provide what you did for this assignment and any classes you created.  Or describe directly to tell the grader what was created specifically by you and what to look for in your code to show that you met the assignment (rubric) requirements for it.  Mention classes, methods, specific files, etc.  Aka... make it easy for the grader to find and give you credit ... where credit is due!
 
+### M03-A01: Writing Model Unit Tests
+
+I manually wrote the tests for the Item class and the DWTag class. I then used JUnit to write the automatic test cases for the Move and Character Classes. I was unsure of how to get the TestHarness code to still run in Main if I moved it to the test folder, so I left it in the main directory for now.
+
+### M02-A01: Identifying and Creating SW Model Classes
 I created basic constructors, getters, setters, and toString for my classes I outlined in the NounVerbAnalysis.
 I then created the first monster in the book ankheg and a dummy hireling with a spear item.
 I made all the moves and tags required to represent these dummy characters.
@@ -30,11 +35,11 @@ Step-by-step instructions on how to run your application.
 
 1.  Main class to run for this assignment:
    
-    Main.java 
+    Main.java
 
 2.  Any other specifics (if needed):
     
-    N/A
+    Then run the Character Test and Move Test classes in the test folder.
 
 
 

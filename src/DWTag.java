@@ -21,14 +21,30 @@ public class DWTag {
         this.n = variable;
     }
 
+    public DWTag(){
+        this.name = "default";
+        this.description = "";
+        this.n = 0;
+    }
+
     @Override
     public String toString() {
         if (description.isEmpty()) {
-            return name;
+            if(n == 0) {
+                return name;
+            }
+            else {
+                return name + " " + n;
+            }
         }
         else
         {
-        return name + ": " + description;
+            if(n == 0) {
+                return name + ": " + description;
+            }else
+            {
+                return name + " " + n + ": " + description;
+            }
     }
     }
 
