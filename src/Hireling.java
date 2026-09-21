@@ -199,4 +199,9 @@ public class Hireling extends Character{
         this.warriorLevel = warriorLevel;
         this.level = this.adeptLevel+this.burglarLevel+this.minstrelLevel+this.priestLevel+this.protectorLevel+this.trackerLevel+this.warriorLevel;
     }
+
+    @Override
+    public void printSetup(){
+        banner = "**************************Hireling**************************";
+    }
 }

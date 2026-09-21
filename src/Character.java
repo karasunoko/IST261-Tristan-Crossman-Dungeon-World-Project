@@ -1,14 +1,15 @@
 import java.util.ArrayList;
 
-public class Character {
+public class Character implements Printable {
 
-    protected String name = "";
-    protected int hp = 0;
-    protected int armor = 0;
-    protected String description = "";
-    protected ArrayList<DWTag> tags = new ArrayList<DWTag>();
-    protected ArrayList<Move> moves = new ArrayList<Move>();
-    protected ArrayList<Item> items = new ArrayList<Item>();
+    protected String banner;
+    protected String name;
+    protected int hp;
+    protected int armor;
+    protected String description;
+    protected ArrayList<DWTag> tags;
+    protected ArrayList<Move> moves;
+    protected ArrayList<Item> items;
 
     public Character(String name, int hp){
         this.name = name;
@@ -18,6 +19,7 @@ public class Character {
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
         this.items = new ArrayList<Item>();
+        banner = "****************************************************";
     }
 
     public Character(String name, int hp, int armor){
@@ -28,6 +30,7 @@ public class Character {
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
         this.items = new ArrayList<Item>();
+        banner = "****************************************************";
     }
 
     public Character(String name, int hp, int armor, String description){
@@ -38,6 +41,7 @@ public class Character {
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
         this.items = new ArrayList<Item>();
+        banner = "****************************************************";
     }
     public Character(){
         this.name = "";
@@ -47,6 +51,7 @@ public class Character {
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
         this.items = new ArrayList<Item>();
+        banner = "****************************************************";
     }
 
     @Override
@@ -154,5 +159,15 @@ public class Character {
         return out;
     }
 
+    @Override
+    public void printSetup(){
+        banner = "**************************Character**************************";
+    }
+
+    @Override
+    public void print() {
+        System.out.println(banner);
+        System.out.println(this.toString());
+    }
 }
 

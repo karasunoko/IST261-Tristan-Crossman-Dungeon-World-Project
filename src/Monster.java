@@ -121,4 +121,8 @@ public class Monster extends Character{
     public void setRange(String range) {
         this.range = range;
     }
+    @Override
+    public void printSetup(){
+        banner = "**************************Monster**************************";
+    }
 }
