@@ -26,31 +26,6 @@ class CharacterTest {
         assertEquals("Test",character.getName());
     }
 
-    @Test
-    void getHP() {
-        Character character = new Character();
-        assertEquals(0,character.getHP());
-    }
-
-    @Test
-    void setHP() {
-        Character character = new Character();
-        character.setHP(5);
-        assertEquals(5,character.getHP());
-    }
-
-    @Test
-    void getArmor() {
-        Character character = new Character();
-        assertEquals(0,character.getArmor());
-    }
-
-    @Test
-    void setArmor() {
-        Character character = new Character();
-        character.setArmor(2);
-        assertEquals(2,character.getArmor());
-    }
 
     @Test
     void getDescription() {

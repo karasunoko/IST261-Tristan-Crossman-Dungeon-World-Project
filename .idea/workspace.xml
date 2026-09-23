@@ -4,21 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Added Printable and implemented it in Character, Monster, and Hireling.">
-      <change afterPath="$PROJECT_DIR$/src/ConfirmationUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ConfirmationUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MonsterEditor.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MonsterEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MonsterUICtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UICtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/TestInheritInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/TestPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Started on Monster Editor UI elements and moved old Main code to TestPrint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DWTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DWTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hireling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hireling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestHarness.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestHarness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CharacterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestInheritInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestInheritInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPrint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +60,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.TestInheritInterface.executor": "Run",
     "Application.TestPrint.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "JUnit.CharacterTest.executor": "Run",
@@ -189,7 +187,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added testing capabilities with JUnit and implemented the first class tests." />
     <MESSAGE value="Added Printable and implemented it in Character, Monster, and Hireling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Printable and implemented it in Character, Monster, and Hireling." />
+    <MESSAGE value="Started on Monster Editor UI elements and moved old Main code to TestPrint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started on Monster Editor UI elements and moved old Main code to TestPrint" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

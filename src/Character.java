@@ -4,17 +4,35 @@ public class Character implements Printable {
 
     protected String banner;
     protected String name;
-    protected int hp;
-    protected int armor;
     protected String description;
+    protected String instinct;
+    protected String special;
     protected ArrayList<DWTag> tags;
     protected ArrayList<Move> moves;
     protected ArrayList<Item> items;
 
-    public Character(String name, int hp){
+    public Character(String name, String description, String instinct){
         this.name = name;
-        this.hp = hp;
-        this.armor = 0;
+        this.description = description;
+        this.instinct = instinct;
+        this.tags = new ArrayList<DWTag>();
+        this.moves = new ArrayList<Move>();
+        this.items = new ArrayList<Item>();
+        banner = "****************************************************";
+    }
+    public Character(String name, String description, String instinct, String special){
+        this.name = name;
+        this.description = description;
+        this.instinct = instinct;
+        this.special = special;
+        this.tags = new ArrayList<DWTag>();
+        this.moves = new ArrayList<Move>();
+        this.items = new ArrayList<Item>();
+        banner = "****************************************************";
+    }
+
+    public Character(String name){
+        this.name = name;
         this.description = "";
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
@@ -22,21 +40,8 @@ public class Character implements Printable {
         banner = "****************************************************";
     }
 
-    public Character(String name, int hp, int armor){
+    public Character(String name, String description){
         this.name = name;
-        this.hp = hp;
-        this.armor = armor;
-        this.description = "";
-        this.tags = new ArrayList<DWTag>();
-        this.moves = new ArrayList<Move>();
-        this.items = new ArrayList<Item>();
-        banner = "****************************************************";
-    }
-
-    public Character(String name, int hp, int armor, String description){
-        this.name = name;
-        this.hp = hp;
-        this.armor = armor;
         this.description = description;
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
@@ -45,8 +50,6 @@ public class Character implements Printable {
     }
     public Character(){
         this.name = "";
-        this.hp = 0;
-        this.armor = 0;
         this.description = "";
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
@@ -56,7 +59,7 @@ public class Character implements Printable {
 
     @Override
     public String toString(){
-        return name + ":\n" + "HP: "+hp+"\nArmor: "+armor+"\n["+this.getTagList()+"]\n" +"\nDescription: "+description+"\nMoves:\n"+moves.toString()+"\nItems: "+items.toString();
+        return name + ":" +"\n["+this.getTagList()+"]" +"\nDescription: "+description+"\nMoves:\n"+moves.toString()+"\nItems: "+items.toString()+"\nInstinct: "+instinct;
     }
     public String getName() {
         return name;
@@ -64,22 +67,6 @@ public class Character implements Printable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getHP() {
-        return hp;
-    }
-
-    public void setHP(int hp) {
-        this.hp = hp;
-    }
-
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
     }
 
     public String getDescription() {
@@ -137,6 +124,22 @@ public class Character implements Printable {
     }
     public void addItem(Item item){
         this.items.add(item);
+    }
+
+    public String getSpecial() {
+        return special;
+    }
+
+    public void setSpecial(String special) {
+        this.special = special;
+    }
+
+    public String getInstinct() {
+        return instinct;
+    }
+
+    public void setInstinct(String instinct) {
+        this.instinct = instinct;
     }
 
     public void removeItem(Item item){

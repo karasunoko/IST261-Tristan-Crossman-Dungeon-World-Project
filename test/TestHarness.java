@@ -21,7 +21,8 @@ public class TestHarness {
         t1.setDescription("Test description.");
         t1.setN(5);
         System.out.println(t1.toString());
-        if(t1.toString().equals("Test 5: Test description.")){
+        System.out.println(t1.toStringFull());
+        if(t1.toString().equals("Test 5") && t1.toStringFull().equals("Test 5: Test description.")){
             System.out.println("Completed testing the DWTag class.");
         }else{
             System.out.println("Error in DWTag class output.");

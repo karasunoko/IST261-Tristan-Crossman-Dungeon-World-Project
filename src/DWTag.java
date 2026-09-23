@@ -39,6 +39,14 @@ public class DWTag {
 
 
     }
+    public String toStringFull(){
+        if(n == 0) {
+            return name + ": " + description;
+        }
+        else {
+            return name + " " + n + ": " + description;
+        }
+    }
 
     public String getName() {
         return name;

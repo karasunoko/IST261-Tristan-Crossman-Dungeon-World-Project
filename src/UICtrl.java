@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class UICtrl {
+public abstract class UICtrl {
     protected JFrame frame;
     public UICtrl(){
         frame = new JFrame();
