@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
 public class Monster extends Character{
-    private String instinct = "";
-    private String weapon = "";
-    private String range = "";
-    private String special = "";
+    private int hp;
+    private int armor;
+    private String weapon;
+    private String range;
+
 
 
     public Monster(String name, int hp, int armor, String description, String instinct, String weapon, String range){
@@ -106,29 +107,32 @@ public class Monster extends Character{
         this.weapon = weapon;
     }
 
-    public String getInstinct() {
-        return instinct;
-    }
 
-    public void setInstinct(String instinct) {
-        this.instinct = instinct;
-    }
 
     public String getRange() {
         return range;
     }
 
-    public String getSpecial() {
-        return special;
-    }
-
-    public void setSpecial(String special) {
-        this.special = special;
-    }
-
     public void setRange(String range) {
         this.range = range;
     }
+
+    public int getHP() {
+        return hp;
+    }
+
+    public void setHP(int hp) {
+        this.hp = hp;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
     @Override
     public void printSetup(){
         banner = "**************************Monster**************************";

@@ -12,10 +12,8 @@ public class Hireling extends Character{
     private int trackerLevel = 0;
     private int warriorLevel = 0;
 
-    public Hireling(String name, int hp, int armor, String description, String cost){
+    public Hireling(String name, String description, String cost){
         this.name = name;
-        this.hp = hp;
-        this.armor = armor;
         this.description = description;
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
@@ -32,10 +30,8 @@ public class Hireling extends Character{
         this.warriorLevel = 0;
     }
 
-    public Hireling(String name, int hp, int armor, String description, String cost, String controller){
+    public Hireling(String name, String description, String cost, String controller){
         this.name = name;
-        this.hp = hp;
-        this.armor = armor;
         this.description = description;
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
@@ -52,10 +48,8 @@ public class Hireling extends Character{
         this.warriorLevel = 0;
     }
 
-    public Hireling(String name, int hp){
+    public Hireling(String name){
         this.name = name;
-        this.hp = hp;
-        this.armor = 0;
         this.description = "";
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
@@ -72,30 +66,8 @@ public class Hireling extends Character{
         this.warriorLevel = 0;
     }
 
-    public Hireling(String name, int hp, int armor){
+    public Hireling(String name, String description){
         this.name = name;
-        this.hp = hp;
-        this.armor = armor;
-        this.description = "";
-        this.tags = new ArrayList<DWTag>();
-        this.moves = new ArrayList<Move>();
-        this.items = new ArrayList<Item>();
-        this.controllingPlayer = "";
-        this.cost = "";
-        this.level = 0;
-        this.adeptLevel = 0;
-        this.burglarLevel = 0;
-        this.minstrelLevel = 0;
-        this.priestLevel = 0;
-        this.protectorLevel = 0;
-        this.trackerLevel = 0;
-        this.warriorLevel = 0;
-    }
-
-    public Hireling(String name, int hp, int armor, String description){
-        this.name = name;
-        this.hp = hp;
-        this.armor = armor;
         this.description = description;
         this.tags = new ArrayList<DWTag>();
         this.moves = new ArrayList<Move>();
@@ -114,7 +86,7 @@ public class Hireling extends Character{
 
     @Override
     public String toString() {
-        return name + ":\nCost: "+ cost +"\nControlling Player: "+ controllingPlayer+"\nLevel: "+ level + "\nHP: "+hp+"\nArmor: "+armor+"\n["+this.getTagList()+"]" +"\nDescription: "+description+"\nMoves:\n"+moves.toString()+"\nItems: "+items.toString()+"\nSkills: (Adept Level: "+adeptLevel+", Burglar Level: "+burglarLevel+", Minstrel Level: "+minstrelLevel+", Priest Level: "+priestLevel+", Protector Level: "+protectorLevel+", Warrior Level: "+warriorLevel+")";
+        return name + ":\nCost: "+ cost +"\nControlling Player: "+ controllingPlayer+"\nLevel: "+ level + "\n["+this.getTagList()+"]" +"\nDescription: "+description+"\nMoves:\n"+moves.toString()+"\nItems: "+items.toString()+"\nSkills: (Adept Level: "+adeptLevel+", Burglar Level: "+burglarLevel+", Minstrel Level: "+minstrelLevel+", Priest Level: "+priestLevel+", Protector Level: "+protectorLevel+", Warrior Level: "+warriorLevel+")";
     }
 
     public String getControllingPlayer() {

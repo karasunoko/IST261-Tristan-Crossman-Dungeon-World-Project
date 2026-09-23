@@ -19,6 +19,7 @@ I already knew about inheritance from previous work, so I planned for it in my e
 I moved the old Main code into a new Main runnable test class called TestPrint. 
 I worked on both the UI for Monster Editor and the Confirmation UI. Then made a basic UICtrl class to control the different UIs in the project. 
 MonsterUICtrl is a child class of UICtrl and controls the UI for editing monsters.
+Finished writing the TestInheritInterface class, including both the testInherit loop.
 
 ### M03-A01: Writing Model Unit Tests
 I manually wrote the tests for the Item class and the DWTag class. I then used JUnit to write the automatic test cases for the Move and Character Classes. I was unsure of how to get the TestHarness code to still run in Main if I moved it to the test folder, so I left it in the main directory for now.

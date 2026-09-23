@@ -13,7 +13,7 @@ public class TestPrint {
         Move move5 = new Move("5");
         Move move6 = new Move("6");
         Item shinyRock = new Item("Shiny Rock", 10, 2);
-        Hireling jimmy = new Hireling("Jimmy",5,1,"A retired soldier who is eager to help those who will pay him.", "Reasonable coin.", "Tristan");
+        Hireling jimmy = new Hireling("Jimmy","A retired soldier who is eager to help those who will pay him.", "Reasonable coin.", "Tristan");
         Move sentry = new Move("Sentry", "When a protector stands between you and an attack you increase your armor against that attack by the defender’s skill, then reduce their skill by 1 until they receive healing or have time to mend.");
         Move intervene = new Move("Intervene", "When a protector helps you defy danger you may opt to take +1 from their aid. If you do you cannot get a 10+ result, a 10+ instead counts as a 7–9.");
         Move manAtArms = new Move("Man-At-Arms", "When you deal damage while a warrior aids you add their skill to the damage done. If your attack results in consequences (like a counter attack) the man-at-arms takes the brunt of it.");
@@ -30,7 +30,6 @@ public class TestPrint {
         jimmy.addMove(manAtArms);
         jimmy.setProtectorLevel(1);
         jimmy.setWarriorLevel(1);
-
         testMonster.addTag(cavern);
         testMonster.addMove(move1);
         testMonster.addMove(move2);
@@ -61,7 +60,7 @@ public class TestPrint {
 //        System.out.println(intervene.toString());
 //        System.out.println(manAtArms.toString());
 
-        // TestHarness testHarness = new TestHarness();
+        TestHarness testHarness = new TestHarness();
 
         ArrayList<Printable> printableObjects = new ArrayList<>();
 
@@ -73,7 +72,7 @@ public class TestPrint {
             p.print();
         }
 
-        MonsterUICtrl monsterUICtrl = new MonsterUICtrl(testMonster);
+
 
     }
 
