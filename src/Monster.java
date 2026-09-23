@@ -118,6 +118,14 @@ public class Monster extends Character{
         return range;
     }
 
+    public String getSpecial() {
+        return special;
+    }
+
+    public void setSpecial(String special) {
+        this.special = special;
+    }
+
     public void setRange(String range) {
         this.range = range;
     }

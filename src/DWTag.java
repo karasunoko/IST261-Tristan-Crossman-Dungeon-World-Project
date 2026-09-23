@@ -29,23 +29,15 @@ public class DWTag {
 
     @Override
     public String toString() {
-        if (description.isEmpty()) {
-            if(n == 0) {
-                return name;
-            }
-            else {
-                return name + " " + n;
-            }
+
+        if(n == 0) {
+            return name;
         }
-        else
-        {
-            if(n == 0) {
-                return name + ": " + description;
-            }else
-            {
-                return name + " " + n + ": " + description;
-            }
-    }
+        else {
+            return name + " " + n;
+        }
+
+
     }
 
     public String getName() {
