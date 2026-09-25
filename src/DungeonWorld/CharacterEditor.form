@@ -138,7 +138,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Special"/>
+          <text value="Special (Optional)"/>
         </properties>
       </component>
       <component id="43c15" class="javax.swing.JTextArea" binding="descriptionText">

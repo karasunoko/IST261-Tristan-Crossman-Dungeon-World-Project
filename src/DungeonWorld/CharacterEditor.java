@@ -23,7 +23,7 @@ public class CharacterEditor {
     private JButton editTagsButton;
     private CharacterUICtrl characterUICtrl;
 
-    public CharacterEditor(CharacterUICtrl characterUICtrl){
+    public CharacterEditor(CharacterUICtrl characterUICtrl) {
         this.characterUICtrl = characterUICtrl;
     }
 
@@ -32,7 +32,7 @@ public class CharacterEditor {
         return cPane;
     }
 
-    public void setContentPane(JPanel cPane) {
+    public void setcPane(JPanel cPane) {
         this.cPane = cPane;
     }
 
@@ -224,7 +224,7 @@ public class CharacterEditor {
         specialText = new JTextField();
         cPane.add(specialText, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, -1), new Dimension(1000, 1000), 0, false));
         final JLabel label3 = new JLabel();
-        label3.setText("Special");
+        label3.setText("Special (Optional)");
         cPane.add(label3, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, new Dimension(1000, 1000), 0, false));
         descriptionText = new JTextArea();
         descriptionText.setLineWrap(true);

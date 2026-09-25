@@ -9,13 +9,12 @@ public class MonsterUICtrl extends UICtrl{
     private Monster monster;
     private MonsterEditor monsterEditor;
     private ConfirmationUI confirmationUI;
-    private JFrame confirmationFrame;
+    private JDialog confirmationDialog;
 
     public MonsterUICtrl(Monster monster){
         this.monster = monster;
         frame = new JFrame();
         monsterEditor = new MonsterEditor(this);
-
         frame.setTitle("Monster Editor");
         frame.setContentPane(monsterEditor.getcPane());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,14 +58,13 @@ public class MonsterUICtrl extends UICtrl{
     }
         //Clears the shown values to their default states
     public void ClearValues(){
-        confirmationFrame = new JFrame();
+        confirmationDialog = new JDialog();
+        confirmationDialog.setModal(true);
         confirmationUI = new ConfirmationUI(this,"Are you sure you want to clear the current data?");
-        confirmationFrame.setContentPane(confirmationUI.getcPanel());
-        confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationFrame.setSize(600,200);
-        confirmationFrame.setLocationRelativeTo(null);
-        confirmationFrame.setVisible(true);
-
+        confirmationDialog.setContentPane(confirmationUI.getcPanel());
+        confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        confirmationDialog.setSize(600,200);
+        confirmationDialog.setLocationRelativeTo(null);
 
         confirmationUI.getYesButton().addActionListener(new ActionListener() {
             @Override
@@ -82,15 +80,16 @@ public class MonsterUICtrl extends UICtrl{
                 monsterEditor.getMoveList().setListData(new ArrayList<Move>().toArray());
                 monsterEditor.getItemList().setListData(new ArrayList<Item>().toArray());
                 monsterEditor.getTagList().setListData(new ArrayList<DWTag>().toArray());
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
         confirmationUI.getNoButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
+        confirmationDialog.setVisible(true);
 
     }
 
@@ -110,13 +109,13 @@ public class MonsterUICtrl extends UICtrl{
             monsterEditor.getTagList().setListData(monster.getTags().toArray());
         }
         else{
-            confirmationFrame = new JFrame();
+            confirmationDialog = new JDialog();
+            confirmationDialog.setModal(true);
             confirmationUI = new ConfirmationUI(this, "Are you sure you want to reset the current data to the saved values?");
-            confirmationFrame.setContentPane(confirmationUI.getcPanel());
-            confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            confirmationFrame.setSize(600, 200);
-            confirmationFrame.setLocationRelativeTo(null);
-            confirmationFrame.setVisible(true);
+            confirmationDialog.setContentPane(confirmationUI.getcPanel());
+            confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            confirmationDialog.setSize(600, 200);
+            confirmationDialog.setLocationRelativeTo(null);
 
             confirmationUI.getYesButton().addActionListener(new ActionListener() {
                 @Override
@@ -132,26 +131,28 @@ public class MonsterUICtrl extends UICtrl{
                     monsterEditor.getMoveList().setListData(monster.getMoves().toArray());
                     monsterEditor.getItemList().setListData(monster.getItems().toArray());
                     monsterEditor.getTagList().setListData(monster.getTags().toArray());
-                    confirmationFrame.dispose();
+                    confirmationDialog.dispose();
                 }
             });
             confirmationUI.getNoButton().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    confirmationFrame.dispose();
+                    confirmationDialog.dispose();
                 }
             });
+            confirmationDialog.setVisible(true);
         }
     }
-        //TODO: Saves the shown values to the object
+        //TODO: Saves the shown values to a database or local file somewhere
+    //Saves the current written data to the object
     public void SaveValues(){
-        confirmationFrame = new JFrame();
+        confirmationDialog = new JDialog();
+        confirmationDialog.setModal(true);
         confirmationUI = new ConfirmationUI(this,"Are you sure you want to save and overwrite the current data?");
-        confirmationFrame.setContentPane(confirmationUI.getcPanel());
-        confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationFrame.setSize(600,200);
-        confirmationFrame.setLocationRelativeTo(null);
-        confirmationFrame.setVisible(true);
+        confirmationDialog.setContentPane(confirmationUI.getcPanel());
+        confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        confirmationDialog.setSize(600,200);
+        confirmationDialog.setLocationRelativeTo(null);
 
         confirmationUI.getYesButton().addActionListener(new ActionListener() {
             @Override
@@ -183,40 +184,42 @@ public class MonsterUICtrl extends UICtrl{
                     tempTags.add(tempTagList.getElementAt(i));
                 }
                 monster.setTags(tempTags);
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
         confirmationUI.getNoButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
-
+        confirmationDialog.setVisible(true);
     }
-        //TODO: Deletes the object
+        //TODO: Deletes the object from a database or local file
     public void DeleteMonster(){
-        confirmationFrame = new JFrame();
+        confirmationDialog = new JDialog();
+        confirmationDialog.setModal(true);
         confirmationUI = new ConfirmationUI(this,"Are you sure you want to delete this monster and all the current data?");
-        confirmationFrame.setContentPane(confirmationUI.getcPanel());
-        confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationFrame.setSize(600,200);
-        confirmationFrame.setLocationRelativeTo(null);
-        confirmationFrame.setVisible(true);
+        confirmationDialog.setContentPane(confirmationUI.getcPanel());
+        confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        confirmationDialog.setSize(600,200);
+        confirmationDialog.setLocationRelativeTo(null);
+
 
         confirmationUI.getYesButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
                 //TODO: Remove monster from the list.(After data can be saved somewhere, json or something)
             }
         });
         confirmationUI.getNoButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
+        confirmationDialog.setVisible(true);
     }
 
 }

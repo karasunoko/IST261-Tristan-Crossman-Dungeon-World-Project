@@ -11,4 +11,12 @@ public abstract class UICtrl {
         frame.setSize(700,700);
         frame.setLocationRelativeTo(null);
     }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public void setFrame(JFrame frame) {
+        this.frame = frame;
+    }
 }

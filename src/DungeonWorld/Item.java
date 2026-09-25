@@ -2,11 +2,10 @@ package DungeonWorld;
 
 import java.util.ArrayList;
 
-public class Item {
-    private String name = "";
-    private int cost = 0;
-    private int weight = 0;
-    private ArrayList<DWTag> tags = new ArrayList<DWTag>();
+public class Item extends Listable{
+    private int cost;
+    private int weight;
+    private ArrayList<DWTag> tags;
 
     public Item(String name){
         this.name = name;

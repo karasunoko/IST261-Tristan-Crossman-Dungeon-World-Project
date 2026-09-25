@@ -3,13 +3,16 @@ package DungeonWorld;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class CharacterUICtrl extends UICtrl{
     private DungeonWorld.Character character;
     private CharacterEditor characterEditor;
     private ConfirmationUI confirmationUI;
-    private JFrame confirmationFrame;
+    private JDialog confirmationDialog;
+    private ArrayList<Listable> newList;
 
     public CharacterUICtrl(Character character){
         this.character = character;
@@ -51,22 +54,37 @@ public class CharacterUICtrl extends UICtrl{
                 DeleteCharacter();
             }
         });
-
-
+        characterEditor.getEditMovesButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditMoves();
+            }
+        });
+        characterEditor.getEditItemsButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditItems();
+            }
+        });
+        characterEditor.getEditTagsButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditTags();
+            }
+        });
 
         frame.setVisible(true);
 
     }
     //Clears the shown values to their default states
     public void ClearValues(){
-        confirmationFrame = new JFrame();
+        confirmationDialog = new JDialog();
+        confirmationDialog.setModal(true);
         confirmationUI = new ConfirmationUI(this,"Are you sure you want to clear the current data?");
-        confirmationFrame.setContentPane(confirmationUI.getcPanel());
-        confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationFrame.setSize(600,200);
-        confirmationFrame.setLocationRelativeTo(null);
-        confirmationFrame.setVisible(true);
-
+        confirmationDialog.setContentPane(confirmationUI.getcPanel());
+        confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        confirmationDialog.setSize(600,200);
+        confirmationDialog.setLocationRelativeTo(null);
 
         confirmationUI.getYesButton().addActionListener(new ActionListener() {
             @Override
@@ -78,16 +96,16 @@ public class CharacterUICtrl extends UICtrl{
                 characterEditor.getMoveList().setListData(new ArrayList<Move>().toArray());
                 characterEditor.getItemList().setListData(new ArrayList<Item>().toArray());
                 characterEditor.getTagList().setListData(new ArrayList<DWTag>().toArray());
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
         confirmationUI.getNoButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
-
+        confirmationDialog.setVisible(true);
     }
 
     //Resets values shown to the saved values in the object
@@ -102,14 +120,13 @@ public class CharacterUICtrl extends UICtrl{
             characterEditor.getTagList().setListData(character.getTags().toArray());
         }
         else {
-            confirmationFrame = new JFrame();
+            confirmationDialog = new JDialog();
+            confirmationDialog.setModal(true);
             confirmationUI = new ConfirmationUI(this, "Are you sure you want to reset the current data to the saved values?");
-            confirmationFrame.setContentPane(confirmationUI.getcPanel());
-            confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            confirmationFrame.setSize(600, 200);
-            confirmationFrame.setLocationRelativeTo(null);
-            confirmationFrame.setVisible(true);
-
+            confirmationDialog.setContentPane(confirmationUI.getcPanel());
+            confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            confirmationDialog.setSize(600, 200);
+            confirmationDialog.setLocationRelativeTo(null);
             confirmationUI.getYesButton().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -120,26 +137,27 @@ public class CharacterUICtrl extends UICtrl{
                     characterEditor.getMoveList().setListData(character.getMoves().toArray());
                     characterEditor.getItemList().setListData(character.getItems().toArray());
                     characterEditor.getTagList().setListData(character.getTags().toArray());
-                    confirmationFrame.dispose();
+                    confirmationDialog.dispose();
                 }
             });
             confirmationUI.getNoButton().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    confirmationFrame.dispose();
+                    confirmationDialog.dispose();
                 }
             });
+            confirmationDialog.setVisible(true);
         }
     }
     //Saves the shown values to the object
     public void SaveValues(){
-        confirmationFrame = new JFrame();
+        confirmationDialog = new JDialog();
+        confirmationDialog.setModal(true);
         confirmationUI = new ConfirmationUI(this,"Are you sure you want to save and overwrite the current data?");
-        confirmationFrame.setContentPane(confirmationUI.getcPanel());
-        confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationFrame.setSize(600,200);
-        confirmationFrame.setLocationRelativeTo(null);
-        confirmationFrame.setVisible(true);
+        confirmationDialog.setContentPane(confirmationUI.getcPanel());
+        confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        confirmationDialog.setSize(600,200);
+        confirmationDialog.setLocationRelativeTo(null);
 
         confirmationUI.getYesButton().addActionListener(new ActionListener() {
             @Override
@@ -167,40 +185,85 @@ public class CharacterUICtrl extends UICtrl{
                     tempTags.add(tempTagList.getElementAt(i));
                 }
                 character.setTags(tempTags);
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
         confirmationUI.getNoButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
-
+        confirmationDialog.setVisible(true);
     }
-    //TODO: Deletes the object
+    //TODO: Deletes the object from a database or local file
     public void DeleteCharacter(){
-        confirmationFrame = new JFrame();
+        confirmationDialog = new JDialog();
+        confirmationDialog.setModal(true);
         confirmationUI = new ConfirmationUI(this,"Are you sure you want to delete this monster and all the current data?");
-        confirmationFrame.setContentPane(confirmationUI.getcPanel());
-        confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationFrame.setSize(600,200);
-        confirmationFrame.setLocationRelativeTo(null);
-        confirmationFrame.setVisible(true);
+        confirmationDialog.setContentPane(confirmationUI.getcPanel());
+        confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        confirmationDialog.setSize(600,200);
+        confirmationDialog.setLocationRelativeTo(null);
+
+
 
         confirmationUI.getYesButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
                 //TODO: Remove character from the list.(After data can be saved somewhere, json or something)
             }
         });
         confirmationUI.getNoButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
+                confirmationDialog.dispose();
             }
         });
+        confirmationDialog.setVisible(true);
+    }
+        //Opens the menu to edit the list of moves
+    public void EditMoves(){
+        ListUICtrl moveUICtrl = ListUICtrl.forMoves(character.getMoves());
+        moveUICtrl.setFrame(new JFrame());
+        moveUICtrl.getFrame().setTitle("Move Editor");
+
+        moveUICtrl.getFrame().setContentPane(moveUICtrl.getMoveEditor().getcPane());
+        moveUICtrl.getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        moveUICtrl.getFrame().setSize(600,500);
+        moveUICtrl.getFrame().setLocationRelativeTo(null);
+        moveUICtrl.getFrame().setVisible(true);
+        moveUICtrl.ResetValues(true);
+        moveUICtrl.getFrame().addWindowListener(new WindowAdapter() {@Override public void windowClosed(WindowEvent e){ResetValues(true);}});
+        moveUICtrl.getMoveEditor().getPreviousButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.PreviousValues();}});
+        moveUICtrl.getMoveEditor().getNextButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.NextValues();}});
+        moveUICtrl.getMoveEditor().getResetButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.ResetValues(false);}});
+        moveUICtrl.getMoveEditor().getSaveButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.SaveValues();}});
+        moveUICtrl.getMoveEditor().getClearButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.ClearValues();}});
+        moveUICtrl.getMoveEditor().getDeleteButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.DeleteValues();}});
+        moveUICtrl.getMoveEditor().getNewButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.New();}});
+        moveUICtrl.getMoveEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {newList = moveUICtrl.SaveClose();
+            ArrayList<Move> newMoves = new ArrayList<Move>();
+            for(Listable l : newList){
+                newMoves.add((Move) l);
+            }
+            character.setMoves(newMoves);
+        }});
+
+
+    }
+
+    public void EditItems(){
+        ListUICtrl itemList = ListUICtrl.forItems(character.getItems());
+
+
+    }
+
+    public void EditTags(){
+        ListUICtrl tagsList = ListUICtrl.forTags(character.getTags());
+
+
     }
 
 }

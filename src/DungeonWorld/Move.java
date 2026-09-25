@@ -1,8 +1,7 @@
 package DungeonWorld;
 
-public class Move {
-    String description = "";
-    String name = "";
+public class Move extends Listable{
+    String description;
 
     public Move(String description)
     {
@@ -21,7 +20,7 @@ public class Move {
     }
     @Override
     public String toString(){
-        if(name == ""){
+        if(name.isEmpty()||name.isBlank()){
             return description;
         }
         else{
