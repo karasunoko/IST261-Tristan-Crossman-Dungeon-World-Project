@@ -4,18 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Started on Monster Editor UI elements and moved old Main code to TestPrint">
+    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Refactored some variables in the Character and Monster classes, and started the TestInheritInterface class">
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DWTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DWTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hireling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hireling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestHarness.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestHarness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UICtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CharacterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestInheritInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestInheritInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPrint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConfirmationUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ConfirmationUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConfirmationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ConfirmationUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DWTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/DWTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hireling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Hireling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MonsterEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MonsterEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MonsterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterUICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Printable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Printable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/UICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Testing/CharacterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/MoveTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Testing/MoveTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestHarness.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Testing/TestHarness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestInheritInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Testing/TestInheritInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Testing/TestPrint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +96,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Tristan/IdeaProjects/IST261-Tristan-Crossman-Dungeon-World-Project/src",
     "node.js.detected.package.jshint": "true",
     "node.js.selected.package.jshint": "",
     "nodejs_package_manager_path": "npm",
@@ -93,8 +107,14 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tristan\IdeaProjects\IST261-Tristan-Crossman-Dungeon-World-Project\src" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tristan\IdeaProjects\IST261-Tristan-Crossman-Dungeon-World-Project\src\DungeonWorld" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -106,8 +126,8 @@
   <component name="RunManager">
     <configuration name="CharacterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IST261-Tristan-Crossman-Dungeon-World-Project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CharacterTest" />
+      <option name="PACKAGE_NAME" value="DungeonWorld" />
+      <option name="MAIN_CLASS_NAME" value="DungeonWorld.CharacterTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -115,8 +135,8 @@
     </configuration>
     <configuration name="CharacterTest.getTagList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IST261-Tristan-Crossman-Dungeon-World-Project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CharacterTest" />
+      <option name="PACKAGE_NAME" value="DungeonWorld" />
+      <option name="MAIN_CLASS_NAME" value="DungeonWorld.CharacterTest" />
       <option name="METHOD_NAME" value="getTagList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -125,8 +145,8 @@
     </configuration>
     <configuration name="CharacterTest.setMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IST261-Tristan-Crossman-Dungeon-World-Project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CharacterTest" />
+      <option name="PACKAGE_NAME" value="DungeonWorld" />
+      <option name="MAIN_CLASS_NAME" value="DungeonWorld.CharacterTest" />
       <option name="METHOD_NAME" value="setMoves" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -135,8 +155,8 @@
     </configuration>
     <configuration name="MoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IST261-Tristan-Crossman-Dungeon-World-Project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoveTest" />
+      <option name="PACKAGE_NAME" value="DungeonWorld" />
+      <option name="MAIN_CLASS_NAME" value="DungeonWorld.MoveTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,7 +208,8 @@
     <MESSAGE value="Added testing capabilities with JUnit and implemented the first class tests." />
     <MESSAGE value="Added Printable and implemented it in Character, Monster, and Hireling." />
     <MESSAGE value="Started on Monster Editor UI elements and moved old Main code to TestPrint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started on Monster Editor UI elements and moved old Main code to TestPrint" />
+    <MESSAGE value="Refactored some variables in the Character and Monster classes, and started the TestInheritInterface class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored some variables in the Character and Monster classes, and started the TestInheritInterface class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

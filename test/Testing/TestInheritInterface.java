@@ -1,3 +1,8 @@
+package Testing;
+
+import DungeonWorld.*;
+import DungeonWorld.Character;
+
 import java.util.ArrayList;
 
 public class TestInheritInterface {
@@ -73,6 +78,22 @@ public class TestInheritInterface {
 
 
     public static void testInterface(){
-
+        for(Character character : characters){
+            switch (character){
+                case Monster m:
+                    MonsterUICtrl mUI = new MonsterUICtrl(m);
+                    System.out.println("Note for the monsters it includes more combat related numbers and information like weapon damage and range");
+                    break;
+                case Hireling h:
+                    //TODO: make hireling UI
+                    //System.out.println("Note for hirelings it includes the hireling specific class stats and moves");
+                    break;
+                case Character c:
+                    CharacterUICtrl cUI = new CharacterUICtrl(c);
+                    System.out.println("For the characters it is the minimum amount of needed information, sometimes only the name and description are relevant.");
+                    break;
+            }
+            System.out.println();
+        }
     }
 }

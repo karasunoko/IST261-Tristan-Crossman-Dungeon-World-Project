@@ -1,3 +1,5 @@
+package DungeonWorld;
+
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,3 +1,5 @@
+package DungeonWorld;
+
 import javax.swing.*;
 
 public abstract class UICtrl {

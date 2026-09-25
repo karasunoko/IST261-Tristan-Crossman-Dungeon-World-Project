@@ -1,3 +1,9 @@
+package Testing;
+
+import DungeonWorld.Character;
+import DungeonWorld.DWTag;
+import DungeonWorld.Item;
+import DungeonWorld.Move;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,19 +15,19 @@ class CharacterTest {
 
     @Test
     void testToString() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         assertEquals("","");
     }
 
     @Test
     void getName() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         assertEquals("",character.getName());
     }
 
     @Test
     void setName() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         character.setName("Test");
         assertEquals("Test",character.getName());
     }
@@ -29,26 +35,26 @@ class CharacterTest {
 
     @Test
     void getDescription() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         assertEquals("",character.getDescription());
     }
 
     @Test
     void setDescription() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         character.setDescription("Test description.");
         assertEquals("Test description.",character.getDescription());
     }
 
     @Test
     void getTags() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         assertEquals(new ArrayList<DWTag>(),character.getTags());
     }
 
     @Test
     void setTags() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         DWTag tag = new DWTag("Test");
         character.setTags(new ArrayList<DWTag>(List.of(tag)));
         assertEquals(new ArrayList<DWTag>(List.of(tag)),character.getTags());
@@ -56,7 +62,7 @@ class CharacterTest {
 
     @Test
     void addTag() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         DWTag tag = new DWTag("Test");
         character.addTag(tag);
         assertEquals(new ArrayList<DWTag>(List.of(tag)),character.getTags());
@@ -64,7 +70,7 @@ class CharacterTest {
 
     @Test
     void removeTag() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         DWTag tag = new DWTag("Test");
         character.setTags(new ArrayList<DWTag>(List.of(tag)));
         character.removeTag(tag);
@@ -73,7 +79,7 @@ class CharacterTest {
 
     @Test
     void removeTagAt() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         DWTag tag1 = new DWTag("Test 1");
         DWTag tag2 = new DWTag("Test 2");
         character.setTags(new ArrayList<DWTag>(List.of(tag1,tag2)));
@@ -83,13 +89,13 @@ class CharacterTest {
 
     @Test
     void getMoves() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         assertEquals(new ArrayList<Move>(),character.getMoves());
     }
 
     @Test
     void setMoves() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Move move = new Move("Test");
         character.setMoves(new ArrayList<>(List.of(move)));
         assertEquals(new ArrayList<Move>(List.of(move)),character.getMoves());
@@ -97,7 +103,7 @@ class CharacterTest {
 
     @Test
     void addMove() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Move move = new Move("Test");
         character.addMove(move);
         assertEquals(new ArrayList<Move>(List.of(move)),character.getMoves());
@@ -105,7 +111,7 @@ class CharacterTest {
 
     @Test
     void removeMove() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Move move = new Move("Test");
         character.setMoves(new ArrayList<Move>(List.of(move)));
         character.removeMove(move);
@@ -114,7 +120,7 @@ class CharacterTest {
 
     @Test
     void removeMoveAt() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Move move1 = new Move("Test 1");
         Move move2 = new Move("Test 2");
         character.setMoves(new ArrayList<Move>(List.of(move1,move2)));
@@ -124,13 +130,13 @@ class CharacterTest {
 
     @Test
     void getItems() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         assertEquals(new ArrayList<Item>(),character.getItems());
     }
 
     @Test
     void setItems() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Item item = new Item("Test");
         character.setItems(new ArrayList<Item>(List.of(item)));
         assertEquals(new ArrayList<Item>(List.of(item)),character.getItems());
@@ -138,7 +144,7 @@ class CharacterTest {
 
     @Test
     void addItem() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Item item = new Item("Test");
         character.addItem(item);
         assertEquals(new ArrayList<Item>(List.of(item)),character.getItems());
@@ -146,7 +152,7 @@ class CharacterTest {
 
     @Test
     void removeItem() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Item item1 = new Item("Test 1");
         Item item2 = new Item("Test 2");
         character.setItems(new ArrayList<Item>(List.of(item1,item2)));
@@ -156,7 +162,7 @@ class CharacterTest {
 
     @Test
     void removeItemAt() {
-        Character character = new Character();
+        DungeonWorld.Character character = new DungeonWorld.Character();
         Item item1 = new Item("Test 1");
         Item item2 = new Item("Test 2");
         character.setItems(new ArrayList<Item>(List.of(item1,item2)));
@@ -166,7 +172,7 @@ class CharacterTest {
 
     @Test
     void getTagList() {
-        Character character = new Character();
+        DungeonWorld.Character character = new Character();
         DWTag tag1 = new DWTag("Test 1");
         DWTag tag2 = new DWTag("Test 2");
         character.setTags(new ArrayList<DWTag>(List.of(tag1,tag2)));

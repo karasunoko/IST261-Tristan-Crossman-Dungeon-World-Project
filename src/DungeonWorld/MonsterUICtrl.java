@@ -1,3 +1,5 @@
+package DungeonWorld;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,17 +16,17 @@ public class MonsterUICtrl extends UICtrl{
         frame = new JFrame();
         monsterEditor = new MonsterEditor(this);
 
-        frame.setTitle("Chungus UI");
+        frame.setTitle("Monster Editor");
         frame.setContentPane(monsterEditor.getcPane());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700,1000);
         frame.setLocationRelativeTo(null);
-        ResetValues();
+        ResetValues(true);
 
         monsterEditor.getResetButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ResetValues();
+                ResetValues(false);
             }
 
         });
@@ -93,39 +95,53 @@ public class MonsterUICtrl extends UICtrl{
     }
 
         //Resets values shown to the saved values in the object
-    public void ResetValues(){
-        confirmationFrame = new JFrame();
-        confirmationUI = new ConfirmationUI(this,"Are you sure you want to reset the current data to the saved values?");
-        confirmationFrame.setContentPane(confirmationUI.getcPanel());
-        confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationFrame.setSize(600,200);
-        confirmationFrame.setLocationRelativeTo(null);
-        confirmationFrame.setVisible(true);
+    public void ResetValues(boolean skipConfirmation){
+        if(skipConfirmation){
+            monsterEditor.getNameText().setText(monster.getName());
+            monsterEditor.getWeaponText().setText(monster.getWeapon());
+            monsterEditor.getRangeText().setText(monster.getRange());
+            monsterEditor.getInstinctText().setText(monster.getInstinct());
+            monsterEditor.getSpecialText().setText(monster.getSpecial());
+            monsterEditor.getHpSpinner().setValue(monster.getHP());
+            monsterEditor.getArmorSpinner().setValue(monster.getArmor());
+            monsterEditor.getDescriptionText().setText(monster.getDescription());
+            monsterEditor.getMoveList().setListData(monster.getMoves().toArray());
+            monsterEditor.getItemList().setListData(monster.getItems().toArray());
+            monsterEditor.getTagList().setListData(monster.getTags().toArray());
+        }
+        else{
+            confirmationFrame = new JFrame();
+            confirmationUI = new ConfirmationUI(this, "Are you sure you want to reset the current data to the saved values?");
+            confirmationFrame.setContentPane(confirmationUI.getcPanel());
+            confirmationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            confirmationFrame.setSize(600, 200);
+            confirmationFrame.setLocationRelativeTo(null);
+            confirmationFrame.setVisible(true);
 
-        confirmationUI.getYesButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                monsterEditor.getNameText().setText(monster.getName());
-                monsterEditor.getWeaponText().setText(monster.getWeapon());
-                monsterEditor.getRangeText().setText(monster.getRange());
-                monsterEditor.getInstinctText().setText(monster.getInstinct());
-                monsterEditor.getSpecialText().setText(monster.getSpecial());
-                monsterEditor.getHpSpinner().setValue(monster.getHP());
-                monsterEditor.getArmorSpinner().setValue(monster.getArmor());
-                monsterEditor.getDescriptionText().setText(monster.getDescription());
-                monsterEditor.getMoveList().setListData(monster.getMoves().toArray());
-                monsterEditor.getItemList().setListData(monster.getItems().toArray());
-                monsterEditor.getTagList().setListData(monster.getTags().toArray());
-                confirmationFrame.dispose();
-            }
-        });
-        confirmationUI.getNoButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                confirmationFrame.dispose();
-            }
-        });
-
+            confirmationUI.getYesButton().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    monsterEditor.getNameText().setText(monster.getName());
+                    monsterEditor.getWeaponText().setText(monster.getWeapon());
+                    monsterEditor.getRangeText().setText(monster.getRange());
+                    monsterEditor.getInstinctText().setText(monster.getInstinct());
+                    monsterEditor.getSpecialText().setText(monster.getSpecial());
+                    monsterEditor.getHpSpinner().setValue(monster.getHP());
+                    monsterEditor.getArmorSpinner().setValue(monster.getArmor());
+                    monsterEditor.getDescriptionText().setText(monster.getDescription());
+                    monsterEditor.getMoveList().setListData(monster.getMoves().toArray());
+                    monsterEditor.getItemList().setListData(monster.getItems().toArray());
+                    monsterEditor.getTagList().setListData(monster.getTags().toArray());
+                    confirmationFrame.dispose();
+                }
+            });
+            confirmationUI.getNoButton().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    confirmationFrame.dispose();
+                }
+            });
+        }
     }
         //TODO: Saves the shown values to the object
     public void SaveValues(){
@@ -154,16 +170,19 @@ public class MonsterUICtrl extends UICtrl{
                 for(int i = 0; i < tempMoveList.getSize(); i++){
                     tempMoves.add(tempMoveList.getElementAt(i));
                 }
+                monster.setMoves(tempMoves);
                 ArrayList<Item> tempItems = new ArrayList<Item>();
                 ListModel<Item> tempItemList = monsterEditor.getItemList().getModel();
                 for(int i = 0; i < tempItemList.getSize(); i++){
                     tempItems.add(tempItemList.getElementAt(i));
                 }
+                monster.setItems(tempItems);
                 ArrayList<DWTag> tempTags = new ArrayList<DWTag>();
                 ListModel<DWTag> tempTagList = monsterEditor.getTagList().getModel();
                 for(int i = 0; i < tempTagList.getSize(); i++){
                     tempTags.add(tempTagList.getElementAt(i));
                 }
+                monster.setTags(tempTags);
                 confirmationFrame.dispose();
             }
         });

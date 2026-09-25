@@ -16,15 +16,16 @@ Provide what you did for this assignment and any classes you created.  Or descri
 
 ### M04-A01: Implementing Inheritance and Interfaces
 I already knew about inheritance from previous work, so I planned for it in my existing class architecture. My Character class serves as the parent for the Monster and Hireling class. 
-I moved the old Main code into a new Main runnable test class called TestPrint. 
+I moved the old Main code into a new Main runnable test class called Testing.TestPrint. 
 I worked on both the UI for Monster Editor and the Confirmation UI. Then made a basic UICtrl class to control the different UIs in the project. 
 MonsterUICtrl is a child class of UICtrl and controls the UI for editing monsters.
-Finished writing the TestInheritInterface class, including both the testInherit loop.
+Finished writing the Testing.TestInheritInterface class, including the testInherit loop and testInterface loop.
+Not all buttons have full functionality yet due to lack of ability to save data outside runtime at the moment, and lack of time to make the edit moves, items, and tags UIs.
 
 ### M03-A01: Writing Model Unit Tests
 I manually wrote the tests for the Item class and the DWTag class. 
 I then used JUnit to write the automatic test cases for the Move and Character Classes. 
-I was unsure of how to get the TestHarness code to still run in Main if I moved it to the test folder, so I left it in the main directory for now.
+I was unsure of how to get the Testing.TestHarness code to still run in Main if I moved it to the test folder, so I left it in the main directory for now.
 
 ### M02-A01: Identifying and Creating SW Model Classes
 I created basic constructors, getters, setters, and toString for my classes I outlined in the NounVerbAnalysis.
@@ -43,7 +44,7 @@ Step-by-step instructions on how to run your application.
 
 1.  Main class to run for this assignment:
    
-    TestInheritInterface.java in the test directory
+    Testing.TestInheritInterface.java in the test directory
 
 2.  Any other specifics (if needed):
     

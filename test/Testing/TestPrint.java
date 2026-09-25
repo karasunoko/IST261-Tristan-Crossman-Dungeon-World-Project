@@ -1,3 +1,7 @@
+package Testing;
+
+import DungeonWorld.*;
+
 import java.util.ArrayList;
 
 public class TestPrint {

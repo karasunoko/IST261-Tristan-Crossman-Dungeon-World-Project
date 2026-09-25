@@ -1,6 +1,8 @@
+package DungeonWorld;
+
 import java.util.ArrayList;
 
-public class Monster extends Character{
+public class Monster extends Character {
     private int hp;
     private int armor;
     private String weapon;

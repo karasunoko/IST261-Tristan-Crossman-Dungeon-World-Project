@@ -1,3 +1,8 @@
+package Testing;
+
+import DungeonWorld.DWTag;
+import DungeonWorld.Item;
+
 import java.util.ArrayList;
 
 public class TestHarness {

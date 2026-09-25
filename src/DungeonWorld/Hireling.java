@@ -1,6 +1,8 @@
+package DungeonWorld;
+
 import java.util.ArrayList;
 
-public class Hireling extends Character{
+public class Hireling extends Character {
     private String controllingPlayer = "";
     private int level = 0;
     private String cost = "";

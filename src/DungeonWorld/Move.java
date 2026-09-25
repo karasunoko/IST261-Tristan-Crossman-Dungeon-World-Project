@@ -1,3 +1,5 @@
+package DungeonWorld;
+
 public class Move {
     String description = "";
     String name = "";
