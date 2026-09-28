@@ -22,7 +22,7 @@ public class CharacterUICtrl extends UICtrl{
         frame.setTitle("Character Editor");
         frame.setContentPane(characterEditor.getcPane());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700,1000);
+        frame.setSize(500,800);
         frame.setLocationRelativeTo(null);
         ResetValues(true);
 

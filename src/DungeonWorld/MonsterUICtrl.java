@@ -18,7 +18,7 @@ public class MonsterUICtrl extends UICtrl{
         frame.setTitle("Monster Editor");
         frame.setContentPane(monsterEditor.getcPane());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700,1000);
+        frame.setSize(500,800);
         frame.setLocationRelativeTo(null);
         ResetValues(true);
 

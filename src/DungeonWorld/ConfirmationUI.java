@@ -11,10 +11,11 @@ public class ConfirmationUI {
     private JButton noButton;
     private JLabel confirmationMsgText;
 
-        public ConfirmationUI(UICtrl uiCtrl){
-            this.uiCtrl = uiCtrl;
-        }
-        public ConfirmationUI(UICtrl uiCtrl, String confirmationMsg){
+    public ConfirmationUI(UICtrl uiCtrl) {
+        this.uiCtrl = uiCtrl;
+    }
+
+    public ConfirmationUI(UICtrl uiCtrl, String confirmationMsg) {
         this.uiCtrl = uiCtrl;
         this.confirmationMsgText.setText(confirmationMsg);
     }

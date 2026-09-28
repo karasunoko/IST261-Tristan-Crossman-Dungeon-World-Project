@@ -5,24 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Refactored everything into a package called DungeonWorld and finished the TestInheritInterface and Character UI">
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/ListUICtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/Listable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/MoveEditor.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/MoveEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IST261-Tristan-Crossman-Dungeon-World-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IST261-Tristan-Crossman-Dungeon-World-Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/DWTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/DWTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/ConfirmationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ConfirmationUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DungeonWorld/MonsterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterUICtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/UICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/UICtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Testing/TestInheritInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Testing/TestInheritInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -47,12 +41,12 @@
     &quot;assignee&quot;: &quot;karasunoko&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/karasunoko/IST261-Tristan-Crossman-Dungeon-World-Project.git&quot;,
-    &quot;accountId&quot;: &quot;019d222e-c079-49a8-a440-6967de89ff3f&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/karasunoko/IST261-Tristan-Crossman-Dungeon-World-Project.git",
+    "accountId": "4cd07784-04ed-49c3-aefd-9b6b0c43fe7b"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
@@ -60,46 +54,47 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="3JHhcAL2UEyrIzmDLNhxyvmgfdV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.TestInheritInterface.executor": "Run",
-    "Application.TestPrint.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "JUnit.CharacterTest.executor": "Run",
-    "JUnit.CharacterTest.getTagList.executor": "Run",
-    "JUnit.CharacterTest.setMoves.executor": "Run",
-    "JUnit.MoveTest.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "170",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Tristan/IdeaProjects/IST261-Tristan-Crossman-Dungeon-World-Project/src/DungeonWorld",
-    "node.js.detected.package.jshint": "true",
-    "node.js.selected.package.jshint": "",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propGUI"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestInheritInterface.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestPrint.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;JUnit.CharacterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CharacterTest.getTagList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CharacterTest.setMoves.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MoveTest.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;170&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tristan/IdeaProjects/IST261-Tristan-Crossman-Dungeon-World-Project/src/DungeonWorld&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propGUI&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Tristan\IdeaProjects\IST261-Tristan-Crossman-Dungeon-World-Project\src\DungeonWorld" />
@@ -179,14 +174,6 @@
         <item itemvalue="JUnit.MoveTest" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
