@@ -94,10 +94,13 @@ public class Monster extends Character {
         this.items = new ArrayList<Item>();
     }
 
-
-
     @Override
     public String toString(){
+        return name;
+    }
+
+
+    public String toFullString(){
         return name + ":\n" + "HP: "+hp+"\nArmor: "+armor+"\nWeapon: "+weapon+" "+range+"\n["+this.getTagList()+"]\nSpecial Qualities: "+special+"\nDescription: "+description+"\nMoves:\n"+moves.toString()+"\nItems: "+items.toString()+"\nInstinct: "+instinct;
     }
 

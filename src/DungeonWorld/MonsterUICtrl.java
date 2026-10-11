@@ -17,7 +17,7 @@ public class MonsterUICtrl extends UICtrl{
         monsterEditor = new MonsterEditor(this);
         frame.setTitle("Monster Editor");
         frame.setContentPane(monsterEditor.getcPane());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(500,800);
         frame.setLocationRelativeTo(null);
         ResetValues(true);
@@ -54,7 +54,6 @@ public class MonsterUICtrl extends UICtrl{
 
 
         frame.setVisible(true);
-
     }
         //Clears the shown values to their default states
     public void ClearValues(){

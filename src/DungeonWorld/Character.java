@@ -61,6 +61,11 @@ public class Character implements Printable {
 
     @Override
     public String toString(){
+        return name;
+    }
+
+
+    public String toFullString(){
         return name + ":" +"\n["+this.getTagList()+"]" +"\nDescription: "+description+"\nMoves:\n"+moves.toString()+"\nItems: "+items.toString()+"\nInstinct: "+instinct;
     }
     public String getName() {

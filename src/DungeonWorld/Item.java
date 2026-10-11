@@ -37,6 +37,12 @@ public class Item extends Listable{
 
     @Override
     public String toString(){
+        return name;
+    }
+
+
+
+    public String toFullString(){
         String out = "";
 
         if(!tags.isEmpty()){

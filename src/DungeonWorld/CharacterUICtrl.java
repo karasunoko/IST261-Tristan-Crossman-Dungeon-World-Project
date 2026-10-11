@@ -21,7 +21,7 @@ public class CharacterUICtrl extends UICtrl{
 
         frame.setTitle("Character Editor");
         frame.setContentPane(characterEditor.getcPane());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(500,800);
         frame.setLocationRelativeTo(null);
         ResetValues(true);
@@ -74,7 +74,6 @@ public class CharacterUICtrl extends UICtrl{
         });
 
         frame.setVisible(true);
-
     }
     //Clears the shown values to their default states
     public void ClearValues(){

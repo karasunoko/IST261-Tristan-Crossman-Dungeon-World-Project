@@ -85,9 +85,13 @@ public class Hireling extends Character {
         this.trackerLevel = 0;
         this.warriorLevel = 0;
     }
-
     @Override
-    public String toString() {
+    public String toString(){
+        return name;
+    }
+
+
+    public String toFullString() {
         return name + ":\nCost: "+ cost +"\nControlling Player: "+ controllingPlayer+"\nLevel: "+ level + "\n["+this.getTagList()+"]" +"\nDescription: "+description+"\nMoves:\n"+moves.toString()+"\nItems: "+items.toString()+"\nSkills: (Adept Level: "+adeptLevel+", Burglar Level: "+burglarLevel+", Minstrel Level: "+minstrelLevel+", Priest Level: "+priestLevel+", Protector Level: "+protectorLevel+", Warrior Level: "+warriorLevel+")";
     }
 

@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Refactored confirmation windows into forced dialogs and finished the MoveEditor functionality">
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterListMenu.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterListMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterListUICtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IST261-Tristan-Crossman-Dungeon-World-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IST261-Tristan-Crossman-Dungeon-World-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Hireling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Hireling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/MonsterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterUICtrl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +46,12 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/karasunoko/IST261-Tristan-Crossman-Dungeon-World-Project.git",
-    "accountId": "019d222e-c079-49a8-a440-6967de89ff3f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/karasunoko/IST261-Tristan-Crossman-Dungeon-World-Project.git&quot;,
+    &quot;accountId&quot;: &quot;019d222e-c079-49a8-a440-6967de89ff3f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
@@ -53,6 +59,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="3JHhcAL2UEyrIzmDLNhxyvmgfdV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,7 +81,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "170",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "144",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -111,7 +118,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestInheritInterface">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DungeonWorld.Main" />
+      <module name="IST261-Tristan-Crossman-Dungeon-World-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DungeonWorld.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestInheritInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Testing.TestInheritInterface" />
       <module name="IST261-Tristan-Crossman-Dungeon-World-Project" />
@@ -154,22 +174,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="IST261-Tristan-Crossman-Dungeon-World-Project" />
-      <option name="PACKAGE_NAME" value="DungeonWorld" />
-      <option name="MAIN_CLASS_NAME" value="DungeonWorld.MoveTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestInheritInterface" />
         <item itemvalue="JUnit.CharacterTest" />
         <item itemvalue="JUnit.CharacterTest.getTagList" />
         <item itemvalue="JUnit.CharacterTest.setMoves" />
-        <item itemvalue="JUnit.MoveTest" />
       </list>
     </recent_temporary>
   </component>
