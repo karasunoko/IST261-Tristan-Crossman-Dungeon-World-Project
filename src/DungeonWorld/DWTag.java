@@ -1,7 +1,6 @@
 package DungeonWorld;
 
 public class DWTag extends Listable{
-    private String description;
     private int n;
 
     public DWTag(String name){

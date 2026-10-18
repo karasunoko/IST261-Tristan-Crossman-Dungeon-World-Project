@@ -1,7 +1,7 @@
 package DungeonWorld;
 
 public class Move extends Listable{
-    String description;
+
 
     public Move(String description)
     {

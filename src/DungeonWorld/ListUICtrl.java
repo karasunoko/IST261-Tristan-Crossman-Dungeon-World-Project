@@ -2,6 +2,8 @@ package DungeonWorld;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 public class ListUICtrl extends UICtrl{
     private ConfirmationUI confirmationUI;
@@ -27,6 +29,7 @@ public class ListUICtrl extends UICtrl{
         ctrl.type = "Moves";
         ctrl.setPosition(0);
         ctrl.getMoveEditor().getPreviousButton().setEnabled(false);
+        if(moves.size() <= 1){ctrl.getMoveEditor().getNextButton().setEnabled(false);}
         return ctrl;
     }
 
@@ -36,7 +39,8 @@ public class ListUICtrl extends UICtrl{
         ctrl.setItems(items);
         ctrl.type = "Items";
         ctrl.setPosition(0);
-        //ctrl.getItemEditor().getPreviousButton().setEnabled(false);
+        ctrl.getItemEditor().getPreviousButton().setEnabled(false);
+        if(items.size() <= 1){ctrl.getItemEditor().getNextButton().setEnabled(false);}
         return ctrl;
     }
 
@@ -46,7 +50,8 @@ public class ListUICtrl extends UICtrl{
         ctrl.setTags(tags);
         ctrl.type = "Tags";
         ctrl.setPosition(0);
-        //ctrl.getTagEditor().getPreviousButton().setEnabled(false);
+        ctrl.getTagEditor().getPreviousButton().setEnabled(false);
+        if(tags.size() <= 1){ctrl.getTagEditor().getNextButton().setEnabled(false);}
         return ctrl;
     }
     //Reset the shown values to the saved values
@@ -54,6 +59,7 @@ public class ListUICtrl extends UICtrl{
         if(skipConfirmation){
             switch (type){
                 case "Moves":
+                    if(moves.size() <= 1){moveEditor.getNextButton().setEnabled(false);}
                     if(moves.isEmpty()){
                         moveEditor.getNameText().setText("");
                         moveEditor.getDescriptionText().setText("");
@@ -64,10 +70,32 @@ public class ListUICtrl extends UICtrl{
                     }
                 break;
                 case "Items":
-                    //TODO: add item functionality
+                    if(items.size() <= 1){itemEditor.getNextButton().setEnabled(false);}
+                    if(items.isEmpty()){
+                        itemEditor.getNameText().setText("");
+                        itemEditor.getDescriptionText().setText("");
+                        itemEditor.getnSpinner().setValue(0);
+                        itemEditor.getWeightSpinner().setValue(0);
+                        itemEditor.getCostSpinner().setValue(0);
+                    }else {
+                        Item item = items.get(position);
+                        itemEditor.getNameText().setText(item.getName());
+                        itemEditor.getDescriptionText().setText(item.getDescription());
+                        itemEditor.getnSpinner().setValue(item.getN());
+                    }
                     break;
                 case "Tags":
-                    //TODO: add tag functionality
+                    if(tags.size() <= 1){tagEditor.getNextButton().setEnabled(false);}
+                    if(tags.isEmpty()){
+                        tagEditor.getNameText().setText("");
+                        tagEditor.getDescriptionText().setText("");
+                        tagEditor.getnSpinner().setValue(0);
+                    }else {
+                        DWTag tag = tags.get(position);
+                        tagEditor.getNameText().setText(tag.getName());
+                        tagEditor.getDescriptionText().setText(tag.getDescription());
+                        tagEditor.getnSpinner().setValue(tag.getN());
+                    }
                     break;
                 default:
                     System.out.println("Error: list type not valid");
@@ -97,10 +125,32 @@ public class ListUICtrl extends UICtrl{
                             }
                             break;
                         case "Items":
-                            //TODO: add item functionality
+                            if(items.isEmpty()){
+                                itemEditor.getNameText().setText("");
+                                itemEditor.getDescriptionText().setText("");
+                                itemEditor.getnSpinner().setValue(0);
+                                itemEditor.getWeightSpinner().setValue(0);
+                                itemEditor.getCostSpinner().setValue(0);
+                            }else {
+                                Item item = items.get(position);
+                                itemEditor.getNameText().setText(item.getName());
+                                itemEditor.getDescriptionText().setText(item.getDescription());
+                                itemEditor.getnSpinner().setValue(item.getN());
+                                itemEditor.getWeightSpinner().setValue(item.getWeight());
+                                itemEditor.getCostSpinner().setValue(item.getCost());
+                            }
                             break;
                         case "Tags":
-                            //TODO: add tag functionality
+                            if(tags.isEmpty()){
+                                tagEditor.getNameText().setText("");
+                                tagEditor.getDescriptionText().setText("");
+                                tagEditor.getnSpinner().setValue(0);
+                            }else {
+                                DWTag tag = tags.get(position);
+                                tagEditor.getNameText().setText(tag.getName());
+                                tagEditor.getDescriptionText().setText(tag.getDescription());
+                                tagEditor.getnSpinner().setValue(tag.getN());
+                            }
                             break;
                         default:
                             System.out.println("Error: list type not valid");
@@ -142,10 +192,42 @@ public class ListUICtrl extends UICtrl{
             }
                 break;
             case "Items":
-                //TODO: add item functionality
+                if(position == items.size()-1){
+                    if(items.size() == 1){
+                        itemEditor.getNextButton().setEnabled(false);
+                        itemEditor.getPreviousButton().setEnabled(false);
+                    }else {
+                        itemEditor.getNextButton().setEnabled(false);
+                        itemEditor.getPreviousButton().setEnabled(true);
+                    }
+                }else{
+                    if(position == 0){
+                        itemEditor.getNextButton().setEnabled(true);
+                        itemEditor.getPreviousButton().setEnabled(false);
+                    } else {
+                        itemEditor.getNextButton().setEnabled(true);
+                        itemEditor.getPreviousButton().setEnabled(true);
+                    }
+                }
                 break;
             case "Tags":
-                //TODO: add tag functionality
+                if(position == tags.size()-1){
+                    if(tags.size() == 1){
+                        tagEditor.getNextButton().setEnabled(false);
+                        tagEditor.getPreviousButton().setEnabled(false);
+                    }else {
+                        tagEditor.getNextButton().setEnabled(false);
+                        tagEditor.getPreviousButton().setEnabled(true);
+                    }
+                }else{
+                    if(position == 0){
+                        tagEditor.getNextButton().setEnabled(true);
+                        tagEditor.getPreviousButton().setEnabled(false);
+                    } else {
+                        tagEditor.getNextButton().setEnabled(true);
+                        tagEditor.getPreviousButton().setEnabled(true);
+                    }
+                }
                 break;
             default:
                 System.out.println("Error: list type not valid");
@@ -174,10 +256,32 @@ public class ListUICtrl extends UICtrl{
                 }
                 break;
             case "Items":
-                //TODO: add item functionality
+                if(position == items.size()-1){
+                    itemEditor.getNextButton().setEnabled(false);
+                    itemEditor.getPreviousButton().setEnabled(true);
+                }else{
+                    if(position == 0){
+                        itemEditor.getNextButton().setEnabled(true);
+                        itemEditor.getPreviousButton().setEnabled(false);
+                    } else {
+                        itemEditor.getPreviousButton().setEnabled(true);
+                        itemEditor.getNextButton().setEnabled(true);
+                    }
+                }
                 break;
             case "Tags":
-                //TODO: add tag functionality
+                if(position == tags.size()-1){
+                    tagEditor.getNextButton().setEnabled(false);
+                    tagEditor.getPreviousButton().setEnabled(true);
+                }else{
+                    if(position == 0){
+                        tagEditor.getNextButton().setEnabled(true);
+                        tagEditor.getPreviousButton().setEnabled(false);
+                    } else {
+                        tagEditor.getPreviousButton().setEnabled(true);
+                        tagEditor.getNextButton().setEnabled(true);
+                    }
+                }
                 break;
             default:
                 System.out.println("Error: list type not valid");
@@ -221,10 +325,44 @@ public class ListUICtrl extends UICtrl{
                         ResetValues(true);
                         break;
                     case "Items":
-                        //TODO: add item functionality
+                        switch (moves.size()){
+                            case 0:
+                                itemEditor.getNextButton().setEnabled(false);
+                                itemEditor.getPreviousButton().setEnabled(false);
+                                break;
+                            case 1:
+                                items.remove(getPosition());
+                                itemEditor.getNextButton().setEnabled(false);
+                                itemEditor.getPreviousButton().setEnabled(false);
+                                break;
+                            default:
+                                items.remove(getPosition());
+                                itemEditor.getNextButton().setEnabled(true);
+                                itemEditor.getPreviousButton().setEnabled(false);
+                                break;
+                        }
+                        setPosition(0);
+                        ResetValues(true);
                         break;
                     case "Tags":
-                        //TODO: add tag functionality
+                        switch (tags.size()){
+                            case 0:
+                                tagEditor.getNextButton().setEnabled(false);
+                                tagEditor.getPreviousButton().setEnabled(false);
+                                break;
+                            case 1:
+                                tags.remove(getPosition());
+                                tagEditor.getNextButton().setEnabled(false);
+                                tagEditor.getPreviousButton().setEnabled(false);
+                                break;
+                            default:
+                                tags.remove(getPosition());
+                                tagEditor.getNextButton().setEnabled(true);
+                                tagEditor.getPreviousButton().setEnabled(false);
+                                break;
+                        }
+                        setPosition(0);
+                        ResetValues(true);
                         break;
                     default:
                         System.out.println("Error: list type not valid");
@@ -270,10 +408,38 @@ public class ListUICtrl extends UICtrl{
                         }
                         break;
                     case "Items":
-                        //TODO: add item functionality
+                        if(tags.isEmpty()) {
+                            DWTag tag = new DWTag();
+                            tag.setName(tagEditor.getNameText().getText());
+                            tag.setDescription(tagEditor.getDescriptionText().getText());
+                            tag.setN(((Number) tagEditor.getnSpinner().getValue()).intValue());
+                            tags.add(tag);
+                            setPosition(0);
+                            ResetValues(true);
+                        }else{
+                            Item item = items.get(position);
+                            item.setName(tagEditor.getNameText().getText());
+                            item.setDescription(tagEditor.getDescriptionText().getText());
+                            item.setN(((Number) itemEditor.getnSpinner().getValue()).intValue());
+                            item.setWeight(((Number) itemEditor.getWeightSpinner().getValue()).intValue());
+                            item.setCost(((Number) itemEditor.getCostSpinner().getValue()).intValue());
+                        }
                         break;
                     case "Tags":
-                        //TODO: add tag functionality
+                        if(tags.isEmpty()) {
+                            DWTag tag = new DWTag();
+                            tag.setName(tagEditor.getNameText().getText());
+                            tag.setDescription(tagEditor.getDescriptionText().getText());
+                            tag.setN(((Number) tagEditor.getnSpinner().getValue()).intValue());
+                            tags.add(tag);
+                            setPosition(0);
+                            ResetValues(true);
+                        }else{
+                            DWTag tag = tags.get(position);
+                            tag.setName(tagEditor.getNameText().getText());
+                            tag.setDescription(tagEditor.getDescriptionText().getText());
+                            tag.setN(((Number) tagEditor.getnSpinner().getValue()).intValue());
+                        }
                         break;
                     default:
                         System.out.println("Error: list type not valid");
@@ -314,9 +480,9 @@ public class ListUICtrl extends UICtrl{
                         //itemEditor.getDescriptionText().setText("");
                         break;
                     case "Tags":
-                        //TODO: add tag functionality
-                        //tagEditor.getNameText().setText("");
-                        //tagEditor.getDescriptionText().setText("");
+                        tagEditor.getNameText().setText("");
+                        tagEditor.getDescriptionText().setText("");
+                        tagEditor.getnSpinner().setValue(0);
                         break;
                     default:
                         System.out.println("Error: list type not valid");
@@ -367,9 +533,19 @@ public class ListUICtrl extends UICtrl{
                         //itemEditor.getDescriptionText().setText("");
                         break;
                     case "Tags":
-                        //TODO: add tag functionality
-                        //tagEditor.getNameText().setText("");
-                        //tagEditor.getDescriptionText().setText("");
+                        setPosition(tags.size());
+                        tags.add(new DWTag("",""));
+                        if(tags.size()<=1){
+                            tagEditor.getNextButton().setEnabled(false);
+                            tagEditor.getPreviousButton().setEnabled(false);
+                        }else {
+                            tagEditor.getNextButton().setEnabled(false);
+                            tagEditor.getPreviousButton().setEnabled(true);
+                        }
+                        ResetValues(true);
+                        tagEditor.getNameText().setText("");
+                        tagEditor.getDescriptionText().setText("");
+                        tagEditor.getnSpinner().setValue(0);
                         break;
                     default:
                         System.out.println("Error: list type not valid");
@@ -445,6 +621,35 @@ public class ListUICtrl extends UICtrl{
         confirmationDialog.setVisible(true);
         frame.dispose();
         return currentList;
+    }
+
+    public void EditTags(Item item){
+        ListUICtrl tagUICtrl = ListUICtrl.forTags(item.getTags());
+        tagUICtrl.setFrame(new JFrame());
+        tagUICtrl.getFrame().setTitle("Tag Editor");
+        tagUICtrl.getFrame().setContentPane(tagUICtrl.getTagEditor().getcPane());
+        tagUICtrl.getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tagUICtrl.getFrame().setSize(600,500);
+        tagUICtrl.getFrame().pack();
+        tagUICtrl.getFrame().setLocationRelativeTo(null);
+        tagUICtrl.getFrame().setVisible(true);
+        tagUICtrl.ResetValues(true);
+        tagUICtrl.getFrame().addWindowListener(new WindowAdapter() {@Override public void windowClosed(WindowEvent e){ResetValues(true);}});
+        tagUICtrl.getTagEditor().getPreviousButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.PreviousValues();}});
+        tagUICtrl.getTagEditor().getNextButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.NextValues();}});
+        tagUICtrl.getTagEditor().getResetButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.ResetValues(false);}});
+        tagUICtrl.getTagEditor().getSaveButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.SaveValues();}});
+        tagUICtrl.getTagEditor().getClearButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.ClearValues();}});
+        tagUICtrl.getTagEditor().getDeleteButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.DeleteValues();}});
+        tagUICtrl.getTagEditor().getNewButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.New();}});
+        tagUICtrl.getTagEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {
+            ArrayList<Listable> newList = tagUICtrl.SaveClose();
+            ArrayList<DWTag> newTags = new ArrayList<DWTag>();
+            for(Listable l : newList){
+                newTags.add((DWTag) l);
+            }
+            item.setTags(newTags);
+        }});
     }
 
     public ConfirmationUI getConfirmationUI() {

@@ -1,5 +1,10 @@
 package DungeonWorld;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class Main {
@@ -17,7 +22,7 @@ public class Main {
         Move move4 = new Move("4");
         Move move5 = new Move("5");
         Move move6 = new Move("6");
-        Item shinyRock = new Item("Shiny Rock", 10, 2);
+        Item shinyRock = new Item("Shiny Rock", "A rock the sparkles in the light.", 10, 2);
         Hireling jimmy = new Hireling("Jimmy","A retired soldier who is eager to help those who will pay him.", "Reasonable coin.", "Tristan");
         Move sentry = new Move("Sentry", "When a protector stands between you and an attack you increase your armor against that attack by the defender’s skill, then reduce their skill by 1 until they receive healing or have time to mend.");
         Move intervene = new Move("Intervene", "When a protector helps you defy danger you may opt to take +1 from their aid. If you do you cannot get a 10+ result, a 10+ instead counts as a 7–9.");
@@ -25,7 +30,7 @@ public class Main {
         DWTag reach = new DWTag("Reach", "It’s useful for attacking something that’s several feet away—maybe as far as ten.");
         DWTag near = new DWTag("Near", "It’s useful for attacking if you can see the whites of their eyes.");
         DWTag thrown = new DWTag("Thrown", "Throw it at someone to hurt them. If you volley with this weapon, you can’t choose to mark off ammo on a 7–9; once you throw it, it’s gone until you can recover it.");
-        Item spear = new Item("Spear", 5, 1);
+        Item spear = new Item("Spear", "A pointy stick. What a classic!", 5, 1);
         spear.addTag(reach);
         spear.addTag(thrown);
         spear.addTag(near);
@@ -54,8 +59,48 @@ public class Main {
         characterList.add(testMonster);
         characterList.add(jimmy);
         characterList.add(spy);
+        ArrayList<Item> items = new ArrayList<Item>();
+        items.add(shinyRock);
+        items.add(spear);
 
-        CharacterListUICtrl characterListUICtrl = new CharacterListUICtrl(characterList);
+        items = EditItems(items);
 
+
+
+
+        //CharacterUICtrl characterUICtrl = new CharacterUICtrl(spy);
+
+        // CharacterListUICtrl characterListUICtrl = new CharacterListUICtrl(characterList);
+
+    }
+
+    public static ArrayList<Item> EditItems(ArrayList<Item> items){
+        ArrayList<Item> returned;
+        ArrayList<Item> newItems = new ArrayList<Item>();
+        ListUICtrl itemUICtrl = ListUICtrl.forItems(items);
+        itemUICtrl.setFrame(new JFrame());
+        itemUICtrl.getFrame().setTitle("Item Editor");
+        itemUICtrl.getFrame().setContentPane(itemUICtrl.getItemEditor().getcPane());
+        itemUICtrl.getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        itemUICtrl.getFrame().setSize(600,500);
+        itemUICtrl.getFrame().pack();
+        itemUICtrl.getFrame().setLocationRelativeTo(null);
+        itemUICtrl.getFrame().setVisible(true);
+        itemUICtrl.ResetValues(true);
+        itemUICtrl.getItemEditor().getPreviousButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.PreviousValues();}});
+        itemUICtrl.getItemEditor().getNextButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.NextValues();}});
+        itemUICtrl.getItemEditor().getResetButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.ResetValues(false);}});
+        itemUICtrl.getItemEditor().getSaveButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.SaveValues();}});
+        itemUICtrl.getItemEditor().getClearButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.ClearValues();}});
+        itemUICtrl.getItemEditor().getDeleteButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.DeleteValues();}});
+        itemUICtrl.getItemEditor().getNewButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.New();}});
+        itemUICtrl.getItemEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {
+            ArrayList<Listable> newList = itemUICtrl.SaveClose();
+            for(Listable l : newList){
+                newItems.add((Item) l);
+            }
+        }});
+
+        return newItems;
     }
 }

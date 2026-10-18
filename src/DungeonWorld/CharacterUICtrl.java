@@ -23,6 +23,7 @@ public class CharacterUICtrl extends UICtrl{
         frame.setContentPane(characterEditor.getcPane());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(500,800);
+        frame.pack();
         frame.setLocationRelativeTo(null);
         ResetValues(true);
 
@@ -227,10 +228,10 @@ public class CharacterUICtrl extends UICtrl{
         ListUICtrl moveUICtrl = ListUICtrl.forMoves(character.getMoves());
         moveUICtrl.setFrame(new JFrame());
         moveUICtrl.getFrame().setTitle("Move Editor");
-
         moveUICtrl.getFrame().setContentPane(moveUICtrl.getMoveEditor().getcPane());
         moveUICtrl.getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         moveUICtrl.getFrame().setSize(600,500);
+        moveUICtrl.getFrame().pack();
         moveUICtrl.getFrame().setLocationRelativeTo(null);
         moveUICtrl.getFrame().setVisible(true);
         moveUICtrl.ResetValues(true);
@@ -242,27 +243,72 @@ public class CharacterUICtrl extends UICtrl{
         moveUICtrl.getMoveEditor().getClearButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.ClearValues();}});
         moveUICtrl.getMoveEditor().getDeleteButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.DeleteValues();}});
         moveUICtrl.getMoveEditor().getNewButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {moveUICtrl.New();}});
-        moveUICtrl.getMoveEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {newList = moveUICtrl.SaveClose();
+        moveUICtrl.getMoveEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {
+            newList = moveUICtrl.SaveClose();
             ArrayList<Move> newMoves = new ArrayList<Move>();
             for(Listable l : newList){
                 newMoves.add((Move) l);
             }
             character.setMoves(newMoves);
         }});
-
-
     }
 
     public void EditItems(){
-        ListUICtrl itemList = ListUICtrl.forItems(character.getItems());
-
-
+        ListUICtrl itemUICtrl = ListUICtrl.forItems(character.getItems());
+        itemUICtrl.setFrame(new JFrame());
+        itemUICtrl.getFrame().setTitle("Item Editor");
+        itemUICtrl.getFrame().setContentPane(itemUICtrl.getItemEditor().getcPane());
+        itemUICtrl.getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        itemUICtrl.getFrame().setSize(600,500);
+        itemUICtrl.getFrame().pack();
+        itemUICtrl.getFrame().setLocationRelativeTo(null);
+        itemUICtrl.getFrame().setVisible(true);
+        itemUICtrl.ResetValues(true);
+        itemUICtrl.getFrame().addWindowListener(new WindowAdapter() {@Override public void windowClosed(WindowEvent e){ResetValues(true);}});
+        itemUICtrl.getItemEditor().getPreviousButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.PreviousValues();}});
+        itemUICtrl.getItemEditor().getNextButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.NextValues();}});
+        itemUICtrl.getItemEditor().getResetButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.ResetValues(false);}});
+        itemUICtrl.getItemEditor().getSaveButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.SaveValues();}});
+        itemUICtrl.getItemEditor().getClearButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.ClearValues();}});
+        itemUICtrl.getItemEditor().getDeleteButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.DeleteValues();}});
+        itemUICtrl.getItemEditor().getNewButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.New();}});
+        itemUICtrl.getItemEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {
+            newList = itemUICtrl.SaveClose();
+            ArrayList<Item> newItems = new ArrayList<Item>();
+            for(Listable l : newList){
+                newItems.add((Item) l);
+            }
+            character.setItems(newItems);
+        }});
     }
 
     public void EditTags(){
-        ListUICtrl tagsList = ListUICtrl.forTags(character.getTags());
-
-
+        ListUICtrl tagUICtrl = ListUICtrl.forTags(character.getTags());
+        tagUICtrl.setFrame(new JFrame());
+        tagUICtrl.getFrame().setTitle("Tag Editor");
+        tagUICtrl.getFrame().setContentPane(tagUICtrl.getTagEditor().getcPane());
+        tagUICtrl.getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tagUICtrl.getFrame().setSize(600,500);
+        tagUICtrl.getFrame().pack();
+        tagUICtrl.getFrame().setLocationRelativeTo(null);
+        tagUICtrl.getFrame().setVisible(true);
+        tagUICtrl.ResetValues(true);
+        tagUICtrl.getFrame().addWindowListener(new WindowAdapter() {@Override public void windowClosed(WindowEvent e){ResetValues(true);}});
+        tagUICtrl.getTagEditor().getPreviousButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.PreviousValues();}});
+        tagUICtrl.getTagEditor().getNextButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.NextValues();}});
+        tagUICtrl.getTagEditor().getResetButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.ResetValues(false);}});
+        tagUICtrl.getTagEditor().getSaveButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.SaveValues();}});
+        tagUICtrl.getTagEditor().getClearButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.ClearValues();}});
+        tagUICtrl.getTagEditor().getDeleteButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.DeleteValues();}});
+        tagUICtrl.getTagEditor().getNewButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {tagUICtrl.New();}});
+        tagUICtrl.getTagEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {
+            newList = tagUICtrl.SaveClose();
+            ArrayList<DWTag> newTags = new ArrayList<DWTag>();
+            for(Listable l : newList){
+                newTags.add((DWTag) l);
+            }
+            character.setTags(newTags);
+        }});
     }
 
 }

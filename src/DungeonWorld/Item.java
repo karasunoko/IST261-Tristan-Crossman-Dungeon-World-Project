@@ -6,32 +6,58 @@ public class Item extends Listable{
     private int cost;
     private int weight;
     private ArrayList<DWTag> tags;
+    private int n;
 
     public Item(String name){
         this.name = name;
+        this.description = "";
         this.cost = 0;
         this.weight = 0;
+        this.n = 0;
+        this.tags = new ArrayList<DWTag>();
+    }
+    public Item(String name, String description){
+        this.name = name;
+        this.description = description;
+        this.cost = 0;
+        this.weight = 0;
+        this.n = 0;
         this.tags = new ArrayList<DWTag>();
     }
 
-    public Item(String name, int weight){
+    public Item(String name, String description, int weight){
         this.name = name;
+        this.description = description;
         this.cost = 0;
         this.weight = weight;
+        this.n = 0;
         this.tags = new ArrayList<DWTag>();
     }
 
-    public Item(String name, int cost, int weight){
+    public Item(String name, String description, int cost, int weight){
         this.name = name;
+        this.description = description;
         this.cost = cost;
         this.weight = weight;
+        this.n = 0;
+        this.tags = new ArrayList<DWTag>();
+    }
+
+    public Item(String name, String description, int cost, int weight, int n){
+        this.name = name;
+        this.description = description;
+        this.cost = cost;
+        this.weight = weight;
+        this.n = n;
         this.tags = new ArrayList<DWTag>();
     }
 
     public Item(){
         this.name = "default";
+        this.description = "";
         this.cost = 0;
         this.weight = 0;
+        this.n = 0;
         this.tags = new ArrayList<DWTag>();
     }
 
@@ -69,6 +95,22 @@ public class Item extends Listable{
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+
     public int getCost() {
         return cost;
     }
@@ -85,7 +127,6 @@ public class Item extends Listable{
         this.weight = weight;
     }
 
-
     public ArrayList<DWTag> getTags() {
         return tags;
     }
@@ -93,6 +134,7 @@ public class Item extends Listable{
     public void setTags(ArrayList<DWTag> tags) {
         this.tags = tags;
     }
+
     public void addTag(DWTag tag){
         this.tags.add(tag);
     }
