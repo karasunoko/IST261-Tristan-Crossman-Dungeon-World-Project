@@ -9,13 +9,13 @@ Project Description:  A simple but useful program for managing notes, items, NPC
 
 ## Current Assignment Name:   'M05-A01: Implementing a Simple MVC Application GUI'
 
-
 ## Assignment Accomplishments - (Description)
 
 Provide what you did for this assignment and any classes you created.  Or describe directly to tell the grader what was created specifically by you and what to look for in your code to show that you met the assignment (rubric) requirements for it.  Mention classes, methods, specific files, etc.  Aka... make it easy for the grader to find and give you credit ... where credit is due!
 
 ### M05-A01: Implementing a Simple MVC Application GUI
 
+I didn't have time to get it working for all the classes, but I made a working MVC app for Items plus the relevant Tag Editor. I refactored some of the UI code to be more adaptable to the new features as I add them as well. I also populated the test list with more tags and items to better show the features. Still doesn't save the list to anywhere locally but that is in the future assignments as far as I know.
 
 
 ### M04-A01: Implementing Inheritance and Interfaces
@@ -48,7 +48,7 @@ Step-by-step instructions on how to run your application.
 
 1.  Main class to run for this assignment:
    
-    Testing.TestInheritInterface.java in the test directory
+    Main.java
 
 2.  Any other specifics (if needed):
     

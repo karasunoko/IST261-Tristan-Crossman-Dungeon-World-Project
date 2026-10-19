@@ -63,10 +63,12 @@ public class ListUICtrl extends UICtrl{
                     if(moves.isEmpty()){
                         moveEditor.getNameText().setText("");
                         moveEditor.getDescriptionText().setText("");
+                        moveEditor.getDeleteButton().setEnabled(false);
                     }else {
                         Move move = moves.get(position);
                         moveEditor.getNameText().setText(move.getName());
                         moveEditor.getDescriptionText().setText(move.getDescription());
+                        moveEditor.getDeleteButton().setEnabled(true);
                     }
                 break;
                 case "Items":
@@ -77,11 +79,15 @@ public class ListUICtrl extends UICtrl{
                         itemEditor.getnSpinner().setValue(0);
                         itemEditor.getWeightSpinner().setValue(0);
                         itemEditor.getCostSpinner().setValue(0);
+                        itemEditor.getTagList().setListData(new Object[0]);
                     }else {
                         Item item = items.get(position);
                         itemEditor.getNameText().setText(item.getName());
                         itemEditor.getDescriptionText().setText(item.getDescription());
                         itemEditor.getnSpinner().setValue(item.getN());
+                        itemEditor.getWeightSpinner().setValue(item.getWeight());
+                        itemEditor.getCostSpinner().setValue(item.getCost());
+                        itemEditor.getTagList().setListData(item.getTags().toArray());
                     }
                     break;
                 case "Tags":
@@ -90,11 +96,13 @@ public class ListUICtrl extends UICtrl{
                         tagEditor.getNameText().setText("");
                         tagEditor.getDescriptionText().setText("");
                         tagEditor.getnSpinner().setValue(0);
+                        tagEditor.getDeleteButton().setEnabled(false);
                     }else {
                         DWTag tag = tags.get(position);
                         tagEditor.getNameText().setText(tag.getName());
                         tagEditor.getDescriptionText().setText(tag.getDescription());
                         tagEditor.getnSpinner().setValue(tag.getN());
+                        tagEditor.getDeleteButton().setEnabled(true);
                     }
                     break;
                 default:
@@ -131,6 +139,8 @@ public class ListUICtrl extends UICtrl{
                                 itemEditor.getnSpinner().setValue(0);
                                 itemEditor.getWeightSpinner().setValue(0);
                                 itemEditor.getCostSpinner().setValue(0);
+                                itemEditor.getTagList().setListData(new Object[0]);
+
                             }else {
                                 Item item = items.get(position);
                                 itemEditor.getNameText().setText(item.getName());
@@ -138,6 +148,7 @@ public class ListUICtrl extends UICtrl{
                                 itemEditor.getnSpinner().setValue(item.getN());
                                 itemEditor.getWeightSpinner().setValue(item.getWeight());
                                 itemEditor.getCostSpinner().setValue(item.getCost());
+                                itemEditor.getTagList().setListData(item.getTags().toArray());
                             }
                             break;
                         case "Tags":
@@ -325,7 +336,7 @@ public class ListUICtrl extends UICtrl{
                         ResetValues(true);
                         break;
                     case "Items":
-                        switch (moves.size()){
+                        switch (items.size()){
                             case 0:
                                 itemEditor.getNextButton().setEnabled(false);
                                 itemEditor.getPreviousButton().setEnabled(false);
@@ -408,18 +419,20 @@ public class ListUICtrl extends UICtrl{
                         }
                         break;
                     case "Items":
-                        if(tags.isEmpty()) {
-                            DWTag tag = new DWTag();
-                            tag.setName(tagEditor.getNameText().getText());
-                            tag.setDescription(tagEditor.getDescriptionText().getText());
-                            tag.setN(((Number) tagEditor.getnSpinner().getValue()).intValue());
-                            tags.add(tag);
+                        if(items.isEmpty()) {
+                            Item item = new Item();
+                            item.setName(itemEditor.getNameText().getText());
+                            item.setDescription(itemEditor.getDescriptionText().getText());
+                            item.setN(((Number) itemEditor.getnSpinner().getValue()).intValue());
+                            item.setWeight(((Number) itemEditor.getWeightSpinner().getValue()).intValue());
+                            item.setCost(((Number) itemEditor.getCostSpinner().getValue()).intValue());
+                            items.add(item);
                             setPosition(0);
                             ResetValues(true);
                         }else{
                             Item item = items.get(position);
-                            item.setName(tagEditor.getNameText().getText());
-                            item.setDescription(tagEditor.getDescriptionText().getText());
+                            item.setName(itemEditor.getNameText().getText());
+                            item.setDescription(itemEditor.getDescriptionText().getText());
                             item.setN(((Number) itemEditor.getnSpinner().getValue()).intValue());
                             item.setWeight(((Number) itemEditor.getWeightSpinner().getValue()).intValue());
                             item.setCost(((Number) itemEditor.getCostSpinner().getValue()).intValue());
@@ -475,9 +488,12 @@ public class ListUICtrl extends UICtrl{
                         moveEditor.getDescriptionText().setText("");
                         break;
                     case "Items":
-                        //TODO: add item functionality
-                        //itemEditor.getNameText().setText("");
-                        //itemEditor.getDescriptionText().setText("");
+                        itemEditor.getNameText().setText("");
+                        itemEditor.getDescriptionText().setText("");
+                        itemEditor.getnSpinner().setValue(0);
+                        itemEditor.getWeightSpinner().setValue(0);
+                        itemEditor.getCostSpinner().setValue(0);
+
                         break;
                     case "Tags":
                         tagEditor.getNameText().setText("");
@@ -505,7 +521,7 @@ public class ListUICtrl extends UICtrl{
     public void New(){
         confirmationDialog = new JDialog();
         confirmationDialog.setModal(true);
-        confirmationUI = new ConfirmationUI(this, "Are you sure you want to add a new blank move?");
+        confirmationUI = new ConfirmationUI(this, "Are you sure you want to add a new blank object?");
         confirmationDialog.setContentPane(confirmationUI.getcPanel());
         confirmationDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         confirmationDialog.setSize(600, 200);
@@ -528,9 +544,16 @@ public class ListUICtrl extends UICtrl{
                         ResetValues(true);
                         break;
                     case "Items":
-                        //TODO: add item functionality
-                        //itemEditor.getNameText().setText("");
-                        //itemEditor.getDescriptionText().setText("");
+                        setPosition(items.size());
+                        items.add(new Item("",""));
+                        if(items.size()<=1){
+                            itemEditor.getNextButton().setEnabled(false);
+                            itemEditor.getPreviousButton().setEnabled(false);
+                        }else {
+                            itemEditor.getNextButton().setEnabled(false);
+                            itemEditor.getPreviousButton().setEnabled(true);
+                        }
+                        ResetValues(true);
                         break;
                     case "Tags":
                         setPosition(tags.size());
@@ -623,8 +646,8 @@ public class ListUICtrl extends UICtrl{
         return currentList;
     }
 
-    public void EditTags(Item item){
-        ListUICtrl tagUICtrl = ListUICtrl.forTags(item.getTags());
+    public void EditTags(){
+        ListUICtrl tagUICtrl = ListUICtrl.forTags(items.get(position).getTags());
         tagUICtrl.setFrame(new JFrame());
         tagUICtrl.getFrame().setTitle("Tag Editor");
         tagUICtrl.getFrame().setContentPane(tagUICtrl.getTagEditor().getcPane());
@@ -648,9 +671,11 @@ public class ListUICtrl extends UICtrl{
             for(Listable l : newList){
                 newTags.add((DWTag) l);
             }
-            item.setTags(newTags);
+            items.get(position).setTags(newTags);
         }});
     }
+
+
 
     public ConfirmationUI getConfirmationUI() {
         return confirmationUI;

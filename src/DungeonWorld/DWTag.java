@@ -27,6 +27,12 @@ public class DWTag extends Listable{
         this.n = 0;
     }
 
+    public DWTag(DWTag other){
+        this.name = other.name;
+        this.description = other.description;
+        this.n = other.n;
+    }
+
     @Override
     public String toString() {
 

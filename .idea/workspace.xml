@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Refactored some UICtrl to nest better and added a ListMenuUI">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_2026_12_57_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_2026_12_57_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Refactored confirmation windows into forced dialogs and finished the MoveEditor functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DungeonWorld/DWTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/DWTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DungeonWorld/ListUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ListUICtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Listable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Listable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/TagEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +42,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/karasunoko/IST261-Tristan-Crossman-Dungeon-World-Project.git&quot;,
-    &quot;accountId&quot;: &quot;4cd07784-04ed-49c3-aefd-9b6b0c43fe7b&quot;
+    &quot;accountId&quot;: &quot;019d222e-c079-49a8-a440-6967de89ff3f&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -60,7 +52,6 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="3JHhcAL2UEyrIzmDLNhxyvmgfdV" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -185,6 +176,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -194,15 +193,6 @@
       <option name="presentableId" value="Default" />
       <updated>1789323983510</updated>
     </task>
-    <task id="LOCAL-00001" summary="Refactored some UICtrl to nest better and added a ListMenuUI">
-      <option name="closed" value="true" />
-      <created>1791745248363</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1791745248363</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,8 +215,7 @@
     <MESSAGE value="Started on Monster Editor UI elements and moved old Main code to TestPrint" />
     <MESSAGE value="Refactored some variables in the Character and Monster classes, and started the TestInheritInterface class" />
     <MESSAGE value="Refactored everything into a package called DungeonWorld and finished the TestInheritInterface and Character UI" />
-    <MESSAGE value="Refactored some UICtrl to nest better and added a ListMenuUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored some UICtrl to nest better and added a ListMenuUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored everything into a package called DungeonWorld and finished the TestInheritInterface and Character UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

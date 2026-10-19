@@ -31,6 +31,21 @@ public class Main {
         DWTag near = new DWTag("Near", "It’s useful for attacking if you can see the whites of their eyes.");
         DWTag thrown = new DWTag("Thrown", "Throw it at someone to hurt them. If you volley with this weapon, you can’t choose to mark off ammo on a 7–9; once you throw it, it’s gone until you can recover it.");
         Item spear = new Item("Spear", "A pointy stick. What a classic!", 5, 1);
+        DWTag uses = new DWTag("uses", "It can only be used n times.", 0);
+        DWTag slow = new DWTag("Slow", "It takes minutes or more to use.");
+        DWTag ration = new DWTag("Ration", "It's edible, more or less.");
+        Item bandages = new Item("Bandages","When you have a few minutes to bandage someone else’s wounds, heal them of 4 damage and expend a use.",5,0,3);
+        Item adventuringGear = new Item("Adventuring Gear","Adventuring gear is a collection of useful mundane items such as chalk, poles, spikes, ropes, etc. When you rummage through your adventuring gear for some useful mundane item, you find what you need and mark off a use.", 20, 1, 5);
+        Item dungeonRations = new Item("Dungeon Rations", "Not tasty, but not bad either.", 3, 1, 5);
+        bandages.addTag(slow);
+        uses.setN(3);
+        DWTag bandageUses = new DWTag(uses);
+        bandages.addTag(bandageUses);
+        uses.setN(5);
+        DWTag adventuringGearUses = new DWTag(uses);
+        DWTag dungeonRationUses = new DWTag(uses);
+        adventuringGear.addTag(adventuringGearUses);
+        dungeonRations.addTag(dungeonRationUses);
         spear.addTag(reach);
         spear.addTag(thrown);
         spear.addTag(near);
@@ -62,7 +77,9 @@ public class Main {
         ArrayList<Item> items = new ArrayList<Item>();
         items.add(shinyRock);
         items.add(spear);
-
+        items.add(bandages);
+        items.add(adventuringGear);
+        items.add(dungeonRations);
         items = EditItems(items);
 
 
@@ -81,7 +98,7 @@ public class Main {
         itemUICtrl.setFrame(new JFrame());
         itemUICtrl.getFrame().setTitle("Item Editor");
         itemUICtrl.getFrame().setContentPane(itemUICtrl.getItemEditor().getcPane());
-        itemUICtrl.getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        itemUICtrl.getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         itemUICtrl.getFrame().setSize(600,500);
         itemUICtrl.getFrame().pack();
         itemUICtrl.getFrame().setLocationRelativeTo(null);
@@ -94,6 +111,7 @@ public class Main {
         itemUICtrl.getItemEditor().getClearButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.ClearValues();}});
         itemUICtrl.getItemEditor().getDeleteButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.DeleteValues();}});
         itemUICtrl.getItemEditor().getNewButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.New();}});
+        itemUICtrl.getItemEditor().getEditTagsButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {itemUICtrl.EditTags();}});
         itemUICtrl.getItemEditor().getSaveAndCloseButton().addActionListener(new ActionListener() {@Override public void actionPerformed(ActionEvent e) {
             ArrayList<Listable> newList = itemUICtrl.SaveClose();
             for(Listable l : newList){
