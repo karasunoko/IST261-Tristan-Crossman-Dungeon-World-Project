@@ -80,7 +80,8 @@ public class Main {
         items.add(bandages);
         items.add(adventuringGear);
         items.add(dungeonRations);
-        items = EditItems(items);
+        new ItemListUICtrl(items);
+
 
 
 
