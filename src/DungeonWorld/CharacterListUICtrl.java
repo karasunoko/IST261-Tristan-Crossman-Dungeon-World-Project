@@ -19,6 +19,7 @@ public class CharacterListUICtrl extends UICtrl {
         characterTableModel = new CharacterTableModel(characters);
         characterListUI = new CharacterListUI(this);
         frame = characterListUI;
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.saveCharacters(this.characters)));
         characterListUI.setVisible(true);
     }
 
