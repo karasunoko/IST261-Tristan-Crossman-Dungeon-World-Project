@@ -1,6 +1,8 @@
 package DungeonWorld;
 
-public class Listable {
+import java.io.Serializable;
+
+public class Listable implements Serializable {
     protected String name;
     protected String description;
 }

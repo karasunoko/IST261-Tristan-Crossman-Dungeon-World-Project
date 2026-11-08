@@ -3,8 +3,6 @@ package DungeonWorld;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class Main {
@@ -80,15 +78,51 @@ public class Main {
         items.add(bandages);
         items.add(adventuringGear);
         items.add(dungeonRations);
+        // ---- Additional SRD monsters ----
+        DWTag solitary = new DWTag("Solitary", "Lives and fights alone rather than as part of a group.");
+        DWTag large = new DWTag("Large", "Noticeably bigger than a human, about horse-sized or more.");
+        DWTag construct = new DWTag("Construct", "Built or magically assembled rather than born naturally.");
+        DWTag intelligent = new DWTag("Intelligent", "Can reason, scheme, and bargain.");
+        DWTag organized = new DWTag("Organized", "Part of a structured group with leaders and plans.");
+        DWTag twistedExperiments = new DWTag("Twisted Experiments", "Created by reckless magic or unnatural meddling.");
+        DWTag ravenousHordes = new DWTag("Ravenous Hordes", "Comes from the swarming, warlike tribes.");
+        Monster otyugh = new Monster("Otyugh", 20, 1, "A bloated brute that lurks half-sunk in foul water and gorges on the garbage left by orcs and goblins. Its barbed tentacles drag victims toward a mouth full of teeth, and survivors may carry filth fever home with them.", "To befoul", "Tentacles (d10+3)", "Close, Reach, Forceful", "Filth Fever");
+        otyugh.addTag(new DWTag(cavern));
+        otyugh.addTag(new DWTag(solitary));
+        otyugh.addTag(new DWTag(large));
+        otyugh.addMove(new Move("Infect someone with filth fever"));
+        otyugh.addMove(new Move("Fling someone or something"));
+        Monster owlbear = new Monster("Owlbear", 12, 2, "A bear's body wearing an owl's feathers, beak, and sharp night vision. It is built to ambush from the dark.", "To hunt", "Claws (d10)", "Close", "None");
+        owlbear.addTag(new DWTag(twistedExperiments));
+        owlbear.addTag(new DWTag(solitary));
+        owlbear.addTag(new DWTag(construct));
+        owlbear.addMove(new Move("Strike from darkness"));
+        Monster warchief = new Monster("Orc Warchief", 16, 0, "The single supreme leader of the orc horde, blessed by both the one-eyes and the shamans. He carries an ancient sword and an old grudge against the civilized races, and he expects to be obeyed.", "To lead", "Iron Sword of Ages (2d10, take highest, +2)", "Close, Reach", "One-Eye blessings, Shaman blessings, Divine protection from mortal harm");
+        warchief.addTag(new DWTag(ravenousHordes));
+        warchief.addTag(new DWTag(solitary));
+        warchief.addTag(new DWTag(intelligent));
+        warchief.addTag(new DWTag(organized));
+        warchief.addMove(new Move("Start a war"));
+        warchief.addMove(new Move("Make a show of power"));
+        warchief.addMove(new Move("Enrage the tribes"));
+        characterList.add(otyugh);
+        characterList.add(owlbear);
+        characterList.add(warchief);
+
+        ArrayList<Item> saved = StorageManager.loadItems();
+        if (saved != null) {
+            items = saved;   // use the saved list instead of the test data
+        }
         new ItemListUICtrl(items);
 
-
-
-
+        ArrayList<Character> savedCharacters = StorageManager.loadCharacters();
+        if (savedCharacters != null) {
+            characterList = savedCharacters;
+        }
 
         //CharacterUICtrl characterUICtrl = new CharacterUICtrl(spy);
 
-        // CharacterListUICtrl characterListUICtrl = new CharacterListUICtrl(characterList);
+        CharacterListUICtrl characterListUICtrl = new CharacterListUICtrl(characterList);
 
     }
 

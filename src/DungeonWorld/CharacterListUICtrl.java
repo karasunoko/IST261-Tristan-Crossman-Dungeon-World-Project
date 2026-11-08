@@ -1,178 +1,79 @@
 package DungeonWorld;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
-public class CharacterListUICtrl extends UICtrl{
-        private ArrayList<Character> characterList;
-        private CharacterListMenu characterListMenu;
-        private ConfirmationUI confirmationUI;
-        private JDialog confirmationDialog;
+public class CharacterListUICtrl extends UICtrl {
+    private ArrayList<Character> characters;
+    private CharacterTableModel characterTableModel;
+    private CharacterListUI characterListUI;
+    private ConfirmationUI confirmationUI;
+    private JDialog confirmationDialog;
 
+    public CharacterListUICtrl(ArrayList<Character> characters) {
+        this.characters = characters;
+        characterTableModel = new CharacterTableModel(characters);
+        characterListUI = new CharacterListUI(this);
+        frame = characterListUI;
+        characterListUI.setVisible(true);
+    }
 
-        CharacterListUICtrl(ArrayList<Character> characterList) {
-            this.characterList = characterList;
-            characterListMenu = new CharacterListMenu(this);
-            frame = new JFrame();
-            frame.setTitle("Character List");
-            frame.setContentPane(characterListMenu.getcPane());
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(700,700);
-            frame.setLocationRelativeTo(null);
-            ResetValues(true);
+    public CharacterTableModel getCharacterTableModel() {
+        return characterTableModel;
+    }
 
-            characterListMenu.getNewButton().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    AddCharacter();
-                }
-            });
+    public Character getCharacter(int index) {
+        return characters.get(index);
+    }
 
-            characterListMenu.getEditButton().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    int index = characterListMenu.getCharacterDropdown().getSelectedIndex();
-                    if (index >= 0) {
-                        EditCharacter(characterListMenu.getModel().getElementAt(index));
-                    }
-                }
-            });
+    //Asks which type to create, adds it to the list, and opens its editor
+    public void newCharacter() {
+        String[] types = {"Character", "Monster", "Hireling"};
+        int choice = JOptionPane.showOptionDialog(characterListUI,
+                "What type of character do you want to create?", "New Character",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+                null, types, types[0]);
+        if (choice < 0) return;
 
-            characterListMenu.getDeleteButton().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    int index = characterListMenu.getCharacterDropdown().getSelectedIndex();
-                    if (index >= 0) {
-                        DeleteCharacter(characterListMenu.getModel().getElementAt(index));
-                    }
-                }
-            });
-
-
-            frame.setVisible(true);
+        Character newCharacter;
+        switch (choice) {
+            case 1:
+                newCharacter = new Monster("New Monster", 1);
+                break;
+            case 2:
+                newCharacter = new Hireling("New Hireling");
+                break;
+            default:
+                newCharacter = new Character("New Character");
+                break;
         }
+        if (newCharacter.getInstinct() == null) newCharacter.setInstinct("");
+        if (newCharacter.getSpecial() == null) newCharacter.setSpecial("");
 
-        public void ResetValues(boolean skipConfirmation){
-            if(skipConfirmation){
-                characterListMenu.getModel().removeAllElements();
-                characterListMenu.getModel().addAll(characterList);
-            }else{
-                confirmationDialog = new JDialog();
-                confirmationDialog.setModal(true);
-                confirmationUI = new ConfirmationUI(this,"Are you sure you want to reset the character list?");
-                confirmationDialog.setContentPane(confirmationUI.getcPanel());
-                confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                confirmationDialog.setSize(600,200);
-                confirmationDialog.setLocationRelativeTo(null);
+        characters.add(newCharacter);
+        characterTableModel.fireTableDataChanged();
+        openEditor(characters.size() - 1);
+    }
 
-                confirmationUI.getYesButton().addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        characterListMenu.getModel().removeAllElements();
-                        characterListMenu.getModel().addAll(characterList);
-                        confirmationDialog.dispose();
-                    }
-                });
-                confirmationUI.getNoButton().addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        confirmationDialog.dispose();
-                    }
-                });
-                confirmationDialog.setVisible(true);
-            }
-        }
-
-
-        public void DeleteCharacter(Character character){
-            confirmationDialog = new JDialog();
-            confirmationDialog.setModal(true);
-            confirmationUI = new ConfirmationUI(this,"Are you sure you want to delete the selected character?");
-            confirmationDialog.setContentPane(confirmationUI.getcPanel());
-            confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            confirmationDialog.setSize(600,200);
-            confirmationDialog.setLocationRelativeTo(null);
-
-            confirmationUI.getYesButton().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                    characterList.remove(character);
-                    ResetValues(true);
-                    confirmationDialog.dispose();
-                }
-            });
-            confirmationUI.getNoButton().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    confirmationDialog.dispose();
-                }
-            });
-            confirmationDialog.setVisible(true);
-        }
-
-        public void EditCharacter(Character character){
-            confirmationDialog = new JDialog();
-            confirmationDialog.setModal(true);
-            confirmationUI = new ConfirmationUI(this,"Are you sure you want to edit the selected character?");
-            confirmationDialog.setContentPane(confirmationUI.getcPanel());
-            confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            confirmationDialog.setSize(600,200);
-            confirmationDialog.setLocationRelativeTo(null);
-
-            confirmationUI.getYesButton().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(character instanceof Monster){
-                        MonsterUICtrl monsterUICtrl = new MonsterUICtrl((Monster) character);
-                        frame.setVisible(false);
-                        monsterUICtrl.getFrame().addWindowListener(new WindowAdapter() {
-                            @Override
-                            public void windowClosed(WindowEvent e) {
-                                    frame.setVisible(true);
-                            }
-                        });
-                    } else if (character instanceof Hireling) {
-                        //TODO: add Hireling UI functionality
-                    }else {
-                        CharacterUICtrl characterUICtrl = new CharacterUICtrl(character);
-                        frame.setVisible(false);
-                        characterUICtrl.getFrame().addWindowListener(new WindowAdapter() {
-                            @Override
-                            public void windowClosed(WindowEvent e) {
-                                frame.setVisible(true);
-                            }
-                        });
-                    }
-
-                    ResetValues(true);
-                    confirmationDialog.dispose();
-                }
-            });
-            confirmationUI.getNoButton().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    confirmationDialog.dispose();
-                }
-            });
-            confirmationDialog.setVisible(true);
-
-        }
-
-    public void AddCharacter(){
+    public void deleteCharacter(int row) {
+        Character character = characters.get(row);
         confirmationDialog = new JDialog();
         confirmationDialog.setModal(true);
-        confirmationUI = new ConfirmationUI(this,"Are you sure you want to add a new character?");
+        confirmationUI = new ConfirmationUI(this, "Are you sure you want to delete " + character.getName() + "?");
         confirmationDialog.setContentPane(confirmationUI.getcPanel());
-        confirmationDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        confirmationDialog.setSize(600,200);
+        confirmationDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        confirmationDialog.setSize(600, 200);
         confirmationDialog.setLocationRelativeTo(null);
 
         confirmationUI.getYesButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ResetValues(true);
+                characters.remove(character);
+                characterTableModel.fireTableDataChanged();
                 confirmationDialog.dispose();
             }
         });
@@ -183,8 +84,71 @@ public class CharacterListUICtrl extends UICtrl{
             }
         });
         confirmationDialog.setVisible(true);
+    }
 
-        ResetValues(true);
+    //Opens the editor that matches the character's type
+    public void openEditor(int row) {
+        Character character = characters.get(row);
+        JFrame editorFrame;
+        if (character instanceof Monster) {
+            editorFrame = buildMonsterEditor((Monster) character);
+        } else {
+            editorFrame = buildCharacterEditor(character); // Hireling uses this too for now
+        }
+
+        editorFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                characterTableModel.fireTableDataChanged();
+                characterListUI.setVisible(true);
+            }
+        });
+
+        characterListUI.setVisible(false);
+        editorFrame.setVisible(true);
+    }
+
+    private JFrame buildCharacterEditor(Character character) {
+        CharacterUICtrl ctrl = CharacterUICtrl.forCharacter(characters, character);
+        ctrl.setFrame(new JFrame());
+        JFrame f = ctrl.getFrame();
+        f.setTitle("Character Editor");
+        f.setContentPane(ctrl.getCharacterEditor().getcPane());
+        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        f.setSize(500, 800);
+        f.setLocationRelativeTo(null);
+        ctrl.ResetValues(true);
+
+        CharacterEditor ed = ctrl.getCharacterEditor();
+        ed.getResetButton().addActionListener(e -> ctrl.ResetValues(false));
+        ed.getClearButton().addActionListener(e -> ctrl.ClearValues());
+        ed.getSaveButton().addActionListener(e -> ctrl.SaveValues());
+        ed.getDeleteButton().addActionListener(e -> ctrl.DeleteValues());
+        ed.getEditMovesButton().addActionListener(e -> ctrl.EditMoves());
+        ed.getEditItemsButton().addActionListener(e -> ctrl.EditItems());
+        ed.getEditTagsButton().addActionListener(e -> ctrl.EditTags());
+        return f;
+    }
+
+    private JFrame buildMonsterEditor(Monster monster) {
+        MonsterUICtrl ctrl = MonsterUICtrl.forMonster(characters, monster);
+        ctrl.setFrame(new JFrame());
+        JFrame f = ctrl.getFrame();
+        f.setTitle("Monster Editor");
+        f.setContentPane(ctrl.getMonsterEditor().getcPane());
+        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        f.setSize(500, 800);
+        f.setLocationRelativeTo(null);
+        ctrl.ResetValues(true);
+
+        MonsterEditor ed = ctrl.getMonsterEditor();
+        ed.getResetButton().addActionListener(e -> ctrl.ResetValues(false));
+        ed.getClearButton().addActionListener(e -> ctrl.ClearValues());
+        ed.getSaveButton().addActionListener(e -> ctrl.SaveValues());
+        ed.getDeleteButton().addActionListener(e -> ctrl.DeleteValues());
+        ed.getEditMovesButton().addActionListener(e -> ctrl.EditMoves());
+        ed.getEditItemsButton().addActionListener(e -> ctrl.EditItems());
+        ed.getEditTagsButton().addActionListener(e -> ctrl.EditTags());
+        return f;
     }
 }
-

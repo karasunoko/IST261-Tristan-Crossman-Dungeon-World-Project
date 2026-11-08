@@ -1,8 +1,9 @@
 package DungeonWorld;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Character implements Printable {
+public class Character implements Printable, Serializable {
 
     protected String banner;
     protected String name;

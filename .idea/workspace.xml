@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Refactored confirmation windows into forced dialogs and finished the MoveEditor functionality">
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemListUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemListUICtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_12_2026_8_21_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_12_2026_8_21_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_18_2026_8_17_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_18_2026_8_17_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="78fb8323-5366-4e24-b9ed-1b79cfdf34c7" name="Changes" comment="Finished the Item list view">
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterListUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterTableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DungeonWorld/StorageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_19_2026_2_13_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_19_2026_2_13_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterListUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterListUICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/CharacterUICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/ItemListUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/ItemListUICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Listable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Listable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DungeonWorld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/MonsterUICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/MonsterUICtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonWorld/UICtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonWorld/UICtrl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +229,8 @@
     <MESSAGE value="Started on Monster Editor UI elements and moved old Main code to TestPrint" />
     <MESSAGE value="Refactored some variables in the Character and Monster classes, and started the TestInheritInterface class" />
     <MESSAGE value="Refactored everything into a package called DungeonWorld and finished the TestInheritInterface and Character UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored everything into a package called DungeonWorld and finished the TestInheritInterface and Character UI" />
+    <MESSAGE value="Finished the Item list view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the Item list view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

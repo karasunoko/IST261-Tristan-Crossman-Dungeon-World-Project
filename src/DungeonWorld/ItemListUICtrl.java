@@ -16,6 +16,7 @@ public class ItemListUICtrl extends UICtrl {
         itemTableModel = new ItemTableModel(items);
         itemListUI = new ItemListUI(this);
         frame = itemListUI;
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> StorageManager.saveItems(this.items)));
         itemListUI.setVisible(true);
     }
 
