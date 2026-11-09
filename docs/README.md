@@ -7,11 +7,14 @@
 
 Project Description:  A simple but useful program for managing notes, items, NPCs, hirelings, and monsters for the tabletop role playing game Dungeon World.
 
-## Current Assignment Name:   'M06-L01: Implement a GUI List View'
+## Current Assignment Name:   'M07-A01: Persistent Data Strategy and Implementation'
 
 ## Assignment Accomplishments - (Description)
 
 Provide what you did for this assignment and any classes you created.  Or describe directly to tell the grader what was created specifically by you and what to look for in your code to show that you met the assignment (rubric) requirements for it.  Mention classes, methods, specific files, etc.  Aka... make it easy for the grader to find and give you credit ... where credit is due!
+
+### M07-A01: Persistent Data Strategy and Implementation
+I finished the list view for characters and added serialized saving of the characters and items as .ser files in the data folder.
 
 ### M06-L01: Implement a GUI List View
 Implemented a list view for Items that opens the detailed item editor.
